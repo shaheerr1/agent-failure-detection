@@ -1,0 +1,30 @@
+Find the population of Tokyo and the population of London then calculate the percentage difference between them.
+Who founded Microsoft and what university did they attend and what did they study?
+What is the GDP of Germany and the GDP of France and which country has the larger economy and by what percentage?
+Find the current CEO of Tesla and look up their background and find when Tesla was originally founded.
+What is the tallest building in the world and what is the tallest building in Europe and calculate the height difference in metres?
+Find who won the FIFA World Cup in 2018 and who won in 2022 and compare the two winning teams.
+What is the population of India and the population of China and which is larger and what is the combined total?
+Find the founder of Amazon and look up their net worth and find when Amazon was founded.
+What is the distance from London to New York in kilometres and how long would it take to fly at average commercial aircraft speed?
+Who is the Prime Minister of the United Kingdom and what party do they represent and when did they take office?
+Find the melting point of iron and the melting point of copper and calculate the difference and which metal melts at a lower temperature?
+What is the GDP per capita of Norway and the GDP per capita of the United States and which is higher?
+Find who wrote the Harry Potter series and look up when the first book was published and how many books are in the series.
+What is the surface area of the Earth and the surface area of Mars and calculate the ratio between them?
+Find the current population of Brazil and calculate what percentage of the world population that represents assuming world population is 8 billion.
+Who directed the film Inception and what other films have they directed and when was Inception released?
+What is the average salary of a software engineer in the United States and convert that to British pounds using an approximate exchange rate?
+Find when the European Union was founded and how many member states it currently has and which country joined most recently?
+What is the speed of sound in air and the speed of light and calculate how many times faster light travels than sound?
+Find the height of Mount Kilimanjaro and the height of Mont Blanc and calculate which is taller and by how many metres?
+Who invented the World Wide Web and what year was it invented and what organisation were they working for at the time?
+Find the capital of Canada and the capital of Mexico and look up the population of each city.
+What is the area of Russia and the area of the United States and calculate how many times larger Russia is?
+Find when the first iPhone was released and who announced it and how many iPhone models have been released since then?
+What is the unemployment rate in the United Kingdom and compare it to the unemployment rate in the United States?
+Find the founder of Facebook and when it was founded and how many monthly active users it has today?
+What is the population of Nigeria and calculate what percentage of the African continent population it represents assuming Africa has 1.4 billion people?
+Find the current world record for the 100 metre sprint and who holds it and when it was set?
+What is the average life expectancy in Japan and compare it to the average life expectancy in the United States?
+Who was the first female Prime Minister of the United Kingdom and when did she take office and how long did she serve?
