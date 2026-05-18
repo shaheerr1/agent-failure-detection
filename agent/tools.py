@@ -11,15 +11,13 @@ from langchain.tools import tool
 # ---------------------------------------------------------------------------
 # 1. Wikipedia cache + rate limiter
 # ---------------------------------------------------------------------------
-# Cache: if the agent queries the same term twice, we return the cached result
-# instead of hitting Wikipedia again. Prevents redundant API calls.
-_wiki_cache = {}
-_wiki_lock  = threading.Lock()
+_wiki_cache     = {}
+_wiki_lock      = threading.Lock()
 _last_wiki_call = 0
-WIKI_MIN_INTERVAL = 2.0   # minimum seconds between Wikipedia API calls
+WIKI_MIN_INTERVAL = 2.0
 
 def _wiki_rate_limit():
-    """Enforce minimum interval between Wikipedia calls."""
+    """Enforce minimum interval between Wikipedia API calls."""
     global _last_wiki_call
     with _wiki_lock:
         now     = time.time()
@@ -35,21 +33,20 @@ def _wiki_rate_limit():
 def wikipedia_lookup(query: str) -> str:
     """Look up a topic on Wikipedia and return a short summary.
     Use this tool when you need factual or encyclopaedic information.
-    Input should be a topic name or entity. Keep queries short and specific.
-    Example inputs: 'Bill Gates', 'Tokyo', 'Microsoft', 'Pride and Prejudice'"""
+    Input should be a specific topic name.
+    Examples: 'Tokyo', 'Bill Gates', 'Microsoft', 'Pride and Prejudice'
+    Keep queries short — 1 to 3 words maximum."""
 
-    # Return cached result if available
     cache_key = query.strip().lower()
     if cache_key in _wiki_cache:
+        print(f"[Wikipedia CACHE HIT] query='{query}'")
         return _wiki_cache[cache_key]
 
-    # Rate limit before every API call
     _wiki_rate_limit()
 
+    # Attempt 1 — direct summary with auto_suggest=True
     try:
         wiki_lib.set_lang("en")
-
-        # Try direct page summary
         summary = wiki_lib.summary(
             query,
             sentences=5,
@@ -61,38 +58,61 @@ def wikipedia_lookup(query: str) -> str:
         return result
 
     except wiki_lib.exceptions.DisambiguationError as e:
-        # Multiple results — try the first option
+        print(f"[Wikipedia DISAMBIGUATION] query='{query}' | options={e.options[:3]}")
         _wiki_rate_limit()
         try:
-            top = e.options[0]
-            summary = wiki_lib.summary(top, sentences=5)
+            top     = e.options[0]
+            summary = wiki_lib.summary(top, sentences=5, auto_suggest=True)
             result  = f"Page: {top}\nSummary: {summary[:800]}"
             _wiki_cache[cache_key] = result
             return result
-        except Exception:
+        except Exception as e2:
+            print(f"[Wikipedia DISAMBIGUATION FALLBACK ERROR] "
+                  f"type={type(e2).__name__} | msg={e2}")
             options = ", ".join(e.options[:4])
-            return (f"'{query}' is ambiguous. "
-                    f"Try one of these more specific terms: {options}")
+            return f"'{query}' is ambiguous. Try one of: {options}"
 
-    except wiki_lib.exceptions.PageError:
+    except wiki_lib.exceptions.PageError as e:
+        print(f"[Wikipedia PAGEERROR] query='{query}' | error={e}")
+        # Attempt 2 — search for closest page then fetch
+        _wiki_rate_limit()
+        try:
+            results = wiki_lib.search(query, results=3)
+            print(f"[Wikipedia SEARCH RESULTS] query='{query}' | found={results}")
+            if results:
+                _wiki_rate_limit()
+                summary = wiki_lib.summary(
+                    results[0], sentences=5, auto_suggest=True)
+                result  = f"Page: {results[0]}\nSummary: {summary[:800]}"
+                _wiki_cache[cache_key] = result
+                return result
+            else:
+                print(f"[Wikipedia SEARCH] No results found for '{query}'")
+        except Exception as e3:
+            print(f"[Wikipedia SEARCH FALLBACK ERROR] "
+                  f"type={type(e3).__name__} | msg={e3}")
+
         return (f"No Wikipedia page found for '{query}'. "
                 f"Try a shorter or different search term.")
 
     except Exception as e:
-        err = str(e)
-        if "429" in err or "rate" in err.lower():
-            # Rate limited — wait and retry once
-            time.sleep(5)
+        print(f"[Wikipedia GENERIC ERROR] "
+              f"type={type(e).__name__} | msg={str(e)}")
+        if "429" in str(e) or "rate" in str(e).lower():
+            print(f"[Wikipedia] Rate limited — waiting 8 seconds then retrying")
+            time.sleep(8)
             _wiki_rate_limit()
             try:
-                summary = wiki_lib.summary(query, sentences=5)
+                summary = wiki_lib.summary(
+                    query, sentences=5, auto_suggest=True)
                 result  = f"Page: {query}\nSummary: {summary[:800]}"
                 _wiki_cache[cache_key] = result
                 return result
-            except Exception:
-                pass
+            except Exception as e4:
+                print(f"[Wikipedia RETRY ERROR] "
+                      f"type={type(e4).__name__} | msg={e4}")
         return (f"Wikipedia lookup failed for '{query}'. "
-                f"Try rephrasing or use a different search term.")
+                f"Try a shorter search term.")
 
 # ---------------------------------------------------------------------------
 # 3. Calculator
