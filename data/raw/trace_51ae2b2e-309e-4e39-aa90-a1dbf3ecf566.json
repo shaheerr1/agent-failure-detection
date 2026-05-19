@@ -1,6 +1,6 @@
 {
-  "trace_id": "f429fb32-5545-4aff-9563-cf76e0c216f2",
-  "timestamp": "2026-05-19T04:50:44.596459",
+  "trace_id": "51ae2b2e-309e-4e39-aa90-a1dbf3ecf566",
+  "timestamp": "2026-05-19T05:12:34.839130",
   "task": "Who wrote Pride and Prejudice?",
   "category": "A",
   "steps": [
@@ -13,11 +13,11 @@
   ],
   "final_answer": "The author of Pride and Prejudice is Jane Austen.",
   "step_count": 1,
-  "label_claude": null,
-  "label_gpt4o": null,
+  "label_claude": "HALLUCINATION",
+  "label_gpt4o": "HALLUCINATION",
   "label_human": null,
-  "final_label": null,
-  "confidence_claude": null,
-  "confidence_gpt4o": null,
-  "agreement": null
+  "final_label": "HALLUCINATION",
+  "confidence_claude": 0.7,
+  "confidence_gpt4o": 0.95,
+  "agreement": true
 }

@@ -1,0 +1,35 @@
+{
+  "trace_id": "b757b627-f495-4f0b-8823-f95ff81484c0",
+  "timestamp": "2026-05-19T05:11:55.516821",
+  "task": "What is the capital city of Japan?",
+  "category": "A",
+  "steps": [
+    {
+      "thought": "[no explicit reasoning]",
+      "action": "wikipedia_lookup",
+      "action_input": "{'query': 'Capital city of Japan'}",
+      "observation": "Wikipedia lookup failed for 'Capital city of Japan'. Try a shorter search term."
+    },
+    {
+      "thought": "[no explicit reasoning]",
+      "action": "wikipedia_lookup",
+      "action_input": "{'query': 'Tokyo'}",
+      "observation": "Wikipedia lookup failed for 'Tokyo'. Try a shorter search term."
+    },
+    {
+      "thought": "[no explicit reasoning]",
+      "action": "wikipedia_lookup",
+      "action_input": "{'query': 'Japan'}",
+      "observation": "No Wikipedia page found for 'Japan'. Try a shorter or different search term."
+    }
+  ],
+  "final_answer": "The capital city of Japan is Tokyo.",
+  "step_count": 3,
+  "label_claude": "HALLUCINATION",
+  "label_gpt4o": "HALLUCINATION",
+  "label_human": null,
+  "final_label": "HALLUCINATION",
+  "confidence_claude": 0.97,
+  "confidence_gpt4o": 0.95,
+  "agreement": true
+}
