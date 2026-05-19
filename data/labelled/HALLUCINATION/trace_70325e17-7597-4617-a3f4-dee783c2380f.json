@@ -1,6 +1,6 @@
 {
-  "trace_id": "51ae2b2e-309e-4e39-aa90-a1dbf3ecf566",
-  "timestamp": "2026-05-19T05:12:34.839130",
+  "trace_id": "70325e17-7597-4617-a3f4-dee783c2380f",
+  "timestamp": "2026-05-19T05:33:13.658037",
   "task": "Who wrote Pride and Prejudice?",
   "category": "A",
   "steps": [
@@ -17,7 +17,7 @@
   "label_gpt4o": "HALLUCINATION",
   "label_human": null,
   "final_label": "HALLUCINATION",
-  "confidence_claude": 0.7,
+  "confidence_claude": 0.75,
   "confidence_gpt4o": 0.95,
   "agreement": true
 }

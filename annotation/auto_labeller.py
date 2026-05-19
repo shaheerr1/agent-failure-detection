@@ -11,6 +11,7 @@ from pathlib import Path
 import anthropic
 import openai
 from dotenv import load_dotenv
+import re
 
 load_dotenv()
 
@@ -109,7 +110,6 @@ def serialize_trace(trace: dict) -> str:
 
     return "\n".join(lines)
 
-
 # ── Claude labeller ───────────────────────────────────────────────────────────
 def label_with_claude(trace_text: str) -> dict:
     """Send trace text to Claude and return label + confidence."""
@@ -120,10 +120,18 @@ def label_with_claude(trace_text: str) -> dict:
             system=TAXONOMY_PROMPT,
             messages=[{"role": "user", "content": trace_text}]
         )
-        raw  = response.content[0].text.strip()
+
+        raw = response.content[0].text.strip()
         print(f"  [Claude RAW] '{raw[:100]}'")
-        result = json.loads(raw)
-        label  = result.get("label", "").upper().strip()
+
+        # Extract just the JSON object even if Claude adds extra text after it
+        match = re.search(r'\{.*?\}', raw, re.DOTALL)
+        if match:
+            result = json.loads(match.group())
+        else:
+            result = json.loads(raw)
+
+        label = result.get("label", "").upper().strip()
 
         if label not in VALID_CLASSES:
             print(f"  [Claude] Invalid label returned: '{label}'")
@@ -131,9 +139,9 @@ def label_with_claude(trace_text: str) -> dict:
                     "reasoning": f"invalid label: {label}"}
 
         return {
-            "label":     label,
+            "label":      label,
             "confidence": float(result.get("confidence", 0.5)),
-            "reasoning": result.get("reasoning", "")
+            "reasoning":  result.get("reasoning", "")
         }
 
     except json.JSONDecodeError as e:
@@ -208,16 +216,18 @@ def majority_vote(claude_result: dict, gpt4o_result: dict) -> tuple:
 
 # ── Router ────────────────────────────────────────────────────────────────────
 def route_trace(trace: dict, final_label: str, source_path: Path):
-    """
-    Copy the labelled trace JSON into the correct data/labelled/CLASS/ folder.
-    The copy contains the full trace with all label fields populated.
-    """
+    """Move the labelled trace to the correct folder and remove from raw."""
     dest_folder = LABELLED_DIR / final_label
     dest_folder.mkdir(parents=True, exist_ok=True)
     dest_path = dest_folder / source_path.name
 
+    # Write the updated trace (with labels) to the destination
     with open(dest_path, "w", encoding="utf-8") as f:
         json.dump(trace, f, indent=2, ensure_ascii=False)
+
+    # Remove from raw — trace is now owned by the labelled folder
+    source_path.unlink()
+    print(f"  Moved  → {dest_folder.name}/{source_path.name}")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
