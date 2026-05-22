@@ -1,5 +1,5 @@
-Find the population of Tokyo and the population of London then calculate the percentage difference between them.
-Who founded Microsoft and what university did they attend and what did they study?
+Find the population of Paris and the population of Berlin then calculate the percentage difference between them.
+Who founded Apple and what university did they attend and what did they study before co-founding the company?
 What is the GDP of Germany and the GDP of France and which country has the larger economy and by what percentage?
 Find the current CEO of Tesla and look up their background and find when Tesla was originally founded.
 What is the tallest building in the world and what is the tallest building in Europe and calculate the height difference in metres?
@@ -8,23 +8,112 @@ What is the population of India and the population of China and which is larger 
 Find the founder of Amazon and look up their net worth and find when Amazon was founded.
 What is the distance from London to New York in kilometres and how long would it take to fly at average commercial aircraft speed?
 Who is the Prime Minister of the United Kingdom and what party do they represent and when did they take office?
-Find the melting point of iron and the melting point of copper and calculate the difference and which metal melts at a lower temperature?
+Find the melting point of iron and the melting point of copper and calculate the difference and which metal melts at a lower temperature.
 What is the GDP per capita of Norway and the GDP per capita of the United States and which is higher?
 Find who wrote the Harry Potter series and look up when the first book was published and how many books are in the series.
-What is the surface area of the Earth and the surface area of Mars and calculate the ratio between them?
+What is the surface area of the Earth and the surface area of Mars and calculate the ratio between them.
 Find the current population of Brazil and calculate what percentage of the world population that represents assuming world population is 8 billion.
 Who directed the film Inception and what other films have they directed and when was Inception released?
-What is the average salary of a software engineer in the United States and convert that to British pounds using an approximate exchange rate?
-Find when the European Union was founded and how many member states it currently has and which country joined most recently?
-What is the speed of sound in air and the speed of light and calculate how many times faster light travels than sound?
-Find the height of Mount Kilimanjaro and the height of Mont Blanc and calculate which is taller and by how many metres?
+What is the average salary of a software engineer in the United States and convert that to British pounds using an approximate exchange rate.
+Find when the European Union was founded and how many member states it currently has and which country joined most recently.
+What is the speed of sound in air and the speed of light and calculate how many times faster light travels than sound.
+Find the height of Mount Kilimanjaro and the height of Mont Blanc and calculate which is taller and by how many metres.
 Who invented the World Wide Web and what year was it invented and what organisation were they working for at the time?
 Find the capital of Canada and the capital of Mexico and look up the population of each city.
-What is the area of Russia and the area of the United States and calculate how many times larger Russia is?
-Find when the first iPhone was released and who announced it and how many iPhone models have been released since then?
-What is the unemployment rate in the United Kingdom and compare it to the unemployment rate in the United States?
-Find the founder of Facebook and when it was founded and how many monthly active users it has today?
-What is the population of Nigeria and calculate what percentage of the African continent population it represents assuming Africa has 1.4 billion people?
-Find the current world record for the 100 metre sprint and who holds it and when it was set?
-What is the average life expectancy in Japan and compare it to the average life expectancy in the United States?
-Who was the first female Prime Minister of the United Kingdom and when did she take office and how long did she serve?
+What is the area of Russia and the area of the United States and calculate how many times larger Russia is.
+Find when the first iPhone was released and who announced it and how many iPhone models have been released since then.
+What is the unemployment rate in the United Kingdom and compare it to the unemployment rate in the United States.
+Find the founder of Facebook and when it was founded and how many monthly active users it has today.
+What is the population of Nigeria and calculate what percentage of the African continent population it represents assuming Africa has 1.4 billion people.
+Find the current world record for the 100 metre sprint and who holds it and when it was set.
+What is the average life expectancy in Japan and compare it to the average life expectancy in the United States.
+Who was the first female Prime Minister of the United Kingdom and when did she take office and how long did she serve.
+Find the population of Tokyo and the population of New York City and calculate the percentage difference between them.
+What is the GDP of the United States and the GDP of China and which grew faster in the last decade?
+Who invented the telephone and what year was it invented and who was also working on a similar invention at the same time?
+Find the height of the Burj Khalifa and the height of the Empire State Building and calculate the percentage difference.
+What is the population of Australia and calculate what percentage of the world population that represents assuming 8 billion total.
+Find when World War One started and when it ended and calculate how many years it lasted.
+Who was the first person to walk on the moon and what was the name of the mission and what year did it happen?
+Find the area of Canada and the area of China and calculate which country is larger and by how many square kilometres.
+What is the boiling point of gold and the boiling point of silver and calculate the difference between them.
+Find the founder of Twitter and when it was founded and how many daily active users it has today.
+Who wrote the novel 1984 and when was it published and what other notable works did the author write?
+Find the capital city of Brazil and the capital city of Argentina and look up the population of each.
+What is the distance from the Earth to Mars in kilometres and how long would it take a spacecraft to get there?
+Find when the Berlin Wall was built and when it fell and calculate how many years it stood.
+Who is the current President of the United States and what party do they represent and when did they take office?
+Find the population of Egypt and calculate what percentage of the African continent population it represents assuming Africa has 1.4 billion people.
+What is the GDP of Japan and the GDP of South Korea and which has the larger economy?
+Find who holds the world record for the marathon and what their time is and when the record was set.
+What is the average salary of a doctor in the United Kingdom and convert that to US dollars using an approximate exchange rate.
+Find when the first email was sent and who sent it and what organisation were they working for at the time.
+Who directed the film The Dark Knight and what other films have they directed and when was The Dark Knight released?
+Find the population of Mexico City and the population of Buenos Aires and calculate which is larger and by how many people.
+What is the distance from London to Sydney in kilometres and how many hours would it take to fly there?
+Find the founder of Google and when it was founded and what was the original name of the company?
+What is the area of the Amazon rainforest and calculate what percentage of South Americas total area it represents.
+Find when the first human heart transplant was performed and who performed it and in which country it took place.
+Who wrote the play Romeo and Juliet and when was it written and what other notable plays did the author write?
+Find the population of Indonesia and calculate what percentage of the Asian continent population it represents assuming Asia has 4.7 billion people.
+What is the GDP of Brazil and the GDP of Mexico and which has the larger economy and by what percentage?
+Find the height of Big Ben and the height of the Eiffel Tower and calculate which is taller and by how many metres.
+Who invented the airplane and what year was the first successful flight and where did it take place?
+Find the current population of Russia and calculate what percentage of the world population that represents assuming 8 billion total.
+What is the average life expectancy in South Africa and compare it to the average life expectancy in Germany.
+Find when the first Olympic Games took place and in which city and how many athletes participated.
+Who is the current Prime Minister of Australia and what party do they represent and when did they take office?
+Find the population of Lagos and the population of Cairo and calculate which is larger and by how many people.
+What is the distance from the Earth to the Sun in kilometres and how long does light take to travel from the Sun to Earth?
+Find who wrote the novel To Kill a Mockingbird and when it was published and what award it won.
+What is the GDP of India and the GDP of Canada and which has the larger economy?
+Find when the Titanic sank and how many people were on board and how many survived.
+Who invented penicillin and what year was it discovered and what organisation was the inventor working for?
+Find the population of Tokyo and the population of Seoul and calculate the percentage difference between them.
+What is the area of Antarctica and calculate what percentage of the world land area it represents.
+Find the founder of Netflix and when it was founded and how many subscribers it has today.
+Who directed the film Schindlers List and when was it released and how many Academy Awards did it win?
+Find the population of the United Kingdom and calculate what percentage of the European population it represents assuming Europe has 750 million people.
+What is the GDP of South Africa and the GDP of Nigeria and which has the larger economy?
+Find when the first commercial passenger flight took place and which airline operated it and what route it flew.
+Who wrote the novel The Great Gatsby and when was it published and what city is it set in?
+Find the height of Mount Fuji and the height of Mount Vesuvius and calculate which is taller and by how many metres.
+What is the population of Canada and calculate what percentage of the North American population it represents assuming North America has 600 million people.
+Find when the first nuclear power plant was built and in which country and how much electricity it produced.
+Who invented the steam engine and what year was the first practical version built and where were they from?
+Find the population of Shanghai and the population of Mumbai and calculate the percentage difference between them.
+What is the area of the Sahara Desert and calculate what percentage of Africas total land area it represents.
+Find the founder of Uber and when it was founded and in how many countries it operates today.
+Who directed the film Parasite and when was it released and what historic award did it win?
+Find the population of the Philippines and calculate what percentage of the Asian population it represents assuming Asia has 4.7 billion people.
+What is the GDP of Turkey and the GDP of Saudi Arabia and which has the larger economy?
+Find when the first commercial mobile phone was released and who made it and how much it cost at the time.
+Who wrote the novel Crime and Punishment and when was it published and what country was the author from?
+Find the height of the Andes mountain range highest peak and the height of the Rocky Mountains highest peak and calculate the difference.
+What is the population of Pakistan and calculate what percentage of the world population it represents assuming 8 billion total.
+Find when the first space station was launched and which country launched it and how long it was in orbit.
+Who invented the light bulb and what year did they patent it and what country were they from?
+Find the population of Sao Paulo and the population of Lima and calculate which city is larger and by how many people.
+What is the GDP of Indonesia and the GDP of the Netherlands and which has the larger economy?
+Find when the Great Wall of China was first built and how long it is in kilometres and how many people it took to build it.
+Who wrote the novel Anna Karenina and when was it published and what other major works did the author write?
+Find the population of Iran and calculate what percentage of the Middle East population it represents assuming the Middle East has 400 million people.
+What is the distance from New York to Los Angeles in kilometres and how long would it take to drive at average highway speed?
+Find the founder of Airbnb and when it was founded and how many listings it has worldwide today.
+Who directed the film La La Land and when was it released and how many Academy Awards did it win?
+Find the population of Vietnam and the population of Thailand and calculate which is larger and by how many people.
+What is the GDP of Sweden and the GDP of Switzerland and which has the larger economy?
+Find when the first computer was invented and who invented it and which country they were from.
+Who wrote the novel Brave New World and when was it published and what does the title refer to?
+Find the height of Table Mountain in South Africa and the height of Signal Hill and calculate which is taller.
+What is the population of Colombia and calculate what percentage of the South American population it represents assuming South America has 440 million people.
+Find when the Suez Canal was opened and which country it passes through and how long it is in kilometres.
+Who invented the internet and what year was the first message sent over it and what did that message say?
+Find the population of Ethiopia and the population of Tanzania and calculate the percentage difference between them.
+What is the GDP of Argentina and the GDP of Chile and which has the larger economy and by what percentage?
+Find when the Eiffel Tower was built and how tall it is and how many visitors it receives annually.
+Who wrote the play Macbeth and when was it written and what other tragedies did the author write?
+Find the population of Bangladesh and calculate what percentage of the Asian population it represents assuming Asia has 4.7 billion people.
+What is the distance from Moscow to Beijing in kilometres and how long would it take on the Trans-Siberian Railway?
+Find the founder of Tesla and when it was founded and how many cars it has sold in total.
+Who directed the film The Godfather and when was it released and how many Academy Awards did it win?

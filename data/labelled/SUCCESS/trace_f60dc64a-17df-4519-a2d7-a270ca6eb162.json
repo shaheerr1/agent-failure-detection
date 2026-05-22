@@ -1,0 +1,23 @@
+{
+  "trace_id": "f60dc64a-17df-4519-a2d7-a270ca6eb162",
+  "timestamp": "2026-05-23T00:09:59.720595",
+  "task": "What is the capital city of China?",
+  "category": "A",
+  "steps": [
+    {
+      "thought": "[no explicit reasoning]",
+      "action": "wikipedia_lookup",
+      "action_input": "{'query': 'Capital city of China'}",
+      "observation": "Page: Historical capitals of China\nSummary: There are traditionally five major historical capitals of China, often addressed using cardinal directions:Xi'an or the \"western capital\", known as Fenghao during the Western Zhou dynasty, as Chang'an during the Western Han, Western Jin and Tang dynasties, and as Daxing during the Sui dynasty;\nLuoyang or the \"central capital\", during the Eastern Zhou and Eastern Han dynasties;\nNanjing or the \"southern capital\", as Jiankang during the Eastern Jin, the four Southern Dynasties and the late Republic of China, and as Yingtian during the early Ming dynasty;\nKaifeng or the \"eastern capital\", during the Five Dynasties and the Northern Song dynasty;\nBeijing or the \"northern capital\", during the Ming and Qing dynasties, and as Dadu during the Yuan dynasty."
+    }
+  ],
+  "final_answer": "The capital city of China is Beijing.",
+  "step_count": 1,
+  "label_claude": "SUCCESS",
+  "label_gpt4o": "SUCCESS",
+  "label_human": null,
+  "final_label": "SUCCESS",
+  "confidence_claude": 0.95,
+  "confidence_gpt4o": 0.95,
+  "agreement": true
+}

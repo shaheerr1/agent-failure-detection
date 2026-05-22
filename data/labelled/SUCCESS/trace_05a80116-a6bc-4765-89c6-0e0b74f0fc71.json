@@ -1,0 +1,23 @@
+{
+  "trace_id": "05a80116-a6bc-4765-89c6-0e0b74f0fc71",
+  "timestamp": "2026-05-23T00:02:43.938754",
+  "task": "What is 125 percent of 400?",
+  "category": "A",
+  "steps": [
+    {
+      "thought": "[no explicit reasoning]",
+      "action": "calculator",
+      "action_input": "{'expression': '400 * 1.25'}",
+      "observation": "500.0"
+    }
+  ],
+  "final_answer": "The result is 500.",
+  "step_count": 1,
+  "label_claude": "SUCCESS",
+  "label_gpt4o": "SUCCESS",
+  "label_human": null,
+  "final_label": "SUCCESS",
+  "confidence_claude": 0.99,
+  "confidence_gpt4o": 0.95,
+  "agreement": true
+}

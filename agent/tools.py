@@ -5,16 +5,22 @@ import math
 import time
 import datetime
 import threading
-import wikipedia as wiki_lib
+import requests
 from langchain.tools import tool
 
 # ---------------------------------------------------------------------------
 # 1. Wikipedia cache + rate limiter
 # ---------------------------------------------------------------------------
-_wiki_cache     = {}
-_wiki_lock      = threading.Lock()
-_last_wiki_call = 0
-WIKI_MIN_INTERVAL = 2.0
+# Cache: same query within a session returns instantly without an API call
+_wiki_cache       = {}
+_wiki_lock        = threading.Lock()
+_last_wiki_call   = 0
+WIKI_MIN_INTERVAL = 1.5   # seconds between Wikipedia API calls
+
+WIKI_HEADERS = {
+    "User-Agent": "AgentFailureResearch/1.0 (dissertation@university.ac.uk)"
+}
+# Wikipedia requires a descriptive User-Agent — anonymous requests get blocked
 
 def _wiki_rate_limit():
     """Enforce minimum interval between Wikipedia API calls."""
@@ -27,92 +33,119 @@ def _wiki_rate_limit():
         _last_wiki_call = time.time()
 
 # ---------------------------------------------------------------------------
-# 2. Wikipedia Lookup
+# 2. Wikipedia Lookup — REST API (reliable, official, no scraping)
+# ---------------------------------------------------------------------------
+# Previous approach used the `wikipedia` Python package which scraped
+# undocumented internal endpoints and failed randomly with empty responses.
+# This approach uses Wikipedia's two official documented APIs:
+#   - OpenSearch API: finds the correct page title for any query
+#   - REST Summary API: returns structured page summary as clean JSON
 # ---------------------------------------------------------------------------
 @tool
 def wikipedia_lookup(query: str) -> str:
     """Look up a topic on Wikipedia and return a short summary.
     Use this tool when you need factual or encyclopaedic information.
     Input should be a specific topic name.
-    Examples: 'Tokyo', 'Bill Gates', 'Microsoft', 'Pride and Prejudice'
-    Keep queries short — 1 to 3 words maximum."""
+    Examples: 'Tokyo', 'Bill Gates', 'Microsoft', 'Mona Lisa'
+    Keep queries short — 1 to 4 words for best results."""
 
     cache_key = query.strip().lower()
     if cache_key in _wiki_cache:
-        print(f"[Wikipedia CACHE HIT] query='{query}'")
+        print(f"[Wikipedia CACHE HIT] '{query}'")
         return _wiki_cache[cache_key]
 
     _wiki_rate_limit()
 
-    # Attempt 1 — direct summary with auto_suggest=True
     try:
-        wiki_lib.set_lang("en")
-        summary = wiki_lib.summary(
-            query,
-            sentences=5,
-            auto_suggest=True,
-            redirect=True
+        # ── Step 1: OpenSearch to find the correct page title ────────────
+        # OpenSearch returns a ranked list of matching Wikipedia page titles.
+        # Much more reliable than the python package's search method.
+        search_resp = requests.get(
+            "https://en.wikipedia.org/w/api.php",
+            params={
+                "action":    "opensearch",
+                "search":    query,
+                "limit":     3,
+                "format":    "json",
+                "redirects": "resolve"
+            },
+            headers=WIKI_HEADERS,
+            timeout=10
         )
-        result = f"Page: {query}\nSummary: {summary[:800]}"
-        _wiki_cache[cache_key] = result
-        return result
+        search_resp.raise_for_status()
+        titles = search_resp.json()[1]   # list of matching page titles
 
-    except wiki_lib.exceptions.DisambiguationError as e:
-        print(f"[Wikipedia DISAMBIGUATION] query='{query}' | options={e.options[:3]}")
-        _wiki_rate_limit()
-        try:
-            top     = e.options[0]
-            summary = wiki_lib.summary(top, sentences=5, auto_suggest=True)
-            result  = f"Page: {top}\nSummary: {summary[:800]}"
-            _wiki_cache[cache_key] = result
-            return result
-        except Exception as e2:
-            print(f"[Wikipedia DISAMBIGUATION FALLBACK ERROR] "
-                  f"type={type(e2).__name__} | msg={e2}")
-            options = ", ".join(e.options[:4])
-            return f"'{query}' is ambiguous. Try one of: {options}"
+        if not titles:
+            return (f"No Wikipedia article found for '{query}'. "
+                    f"Try a shorter or more specific search term.")
 
-    except wiki_lib.exceptions.PageError as e:
-        print(f"[Wikipedia PAGEERROR] query='{query}' | error={e}")
-        # Attempt 2 — search for closest page then fetch
-        _wiki_rate_limit()
-        try:
-            results = wiki_lib.search(query, results=3)
-            print(f"[Wikipedia SEARCH RESULTS] query='{query}' | found={results}")
-            if results:
+        print(f"[Wikipedia SEARCH] query='{query}' → found: {titles[:3]}")
+
+        # ── Step 2: Fetch summary via REST API ───────────────────────────
+        # Try the top 2 results in case the first is a disambiguation page
+        for title in titles[:2]:
+            _wiki_rate_limit()
+            safe_title = requests.utils.quote(title.replace(" ", "_"))
+            rest_resp  = requests.get(
+                f"https://en.wikipedia.org/api/rest_v1/page/summary/{safe_title}",
+                headers=WIKI_HEADERS,
+                timeout=10
+            )
+
+            if rest_resp.status_code == 200:
+                data    = rest_resp.json()
+                extract = data.get("extract", "").strip()
+                pg_title = data.get("title", title)
+
+                if extract:
+                    # 1000 chars — enough for key facts, not overwhelming
+                    result = f"Page: {pg_title}\nSummary: {extract[:1000]}"
+                    _wiki_cache[cache_key] = result
+                    return result
+
+            elif rest_resp.status_code == 404:
+                print(f"[Wikipedia] 404 for title '{title}' — trying next")
+                continue
+
+            elif rest_resp.status_code == 429:
+                print(f"[Wikipedia] Rate limited (429) — waiting 6 seconds")
+                time.sleep(6)
+                # Retry this title once after waiting
                 _wiki_rate_limit()
-                summary = wiki_lib.summary(
-                    results[0], sentences=5, auto_suggest=True)
-                result  = f"Page: {results[0]}\nSummary: {summary[:800]}"
-                _wiki_cache[cache_key] = result
-                return result
-            else:
-                print(f"[Wikipedia SEARCH] No results found for '{query}'")
-        except Exception as e3:
-            print(f"[Wikipedia SEARCH FALLBACK ERROR] "
-                  f"type={type(e3).__name__} | msg={e3}")
+                retry = requests.get(
+                    f"https://en.wikipedia.org/api/rest_v1/page/summary/{safe_title}",
+                    headers=WIKI_HEADERS,
+                    timeout=10
+                )
+                if retry.status_code == 200:
+                    data    = retry.json()
+                    extract = data.get("extract", "").strip()
+                    pg_title = data.get("title", title)
+                    if extract:
+                        result = f"Page: {pg_title}\nSummary: {extract[:1000]}"
+                        _wiki_cache[cache_key] = result
+                        return result
 
-        return (f"No Wikipedia page found for '{query}'. "
-                f"Try a shorter or different search term.")
+            else:
+                print(f"[Wikipedia] HTTP {rest_resp.status_code} for '{title}'")
+
+        # All titles tried, none returned content
+        return (f"Could not retrieve Wikipedia content for '{query}'. "
+                f"Try a more specific search term.")
+
+    except requests.exceptions.Timeout:
+        print(f"[Wikipedia TIMEOUT] query='{query}'")
+        return (f"Wikipedia request timed out for '{query}'. "
+                f"Try a shorter search term.")
+
+    except requests.exceptions.ConnectionError as e:
+        print(f"[Wikipedia CONNECTION ERROR] {e}")
+        return (f"Wikipedia is currently unreachable. "
+                f"Try again in a moment.")
 
     except Exception as e:
-        print(f"[Wikipedia GENERIC ERROR] "
-              f"type={type(e).__name__} | msg={str(e)}")
-        if "429" in str(e) or "rate" in str(e).lower():
-            print(f"[Wikipedia] Rate limited — waiting 8 seconds then retrying")
-            time.sleep(8)
-            _wiki_rate_limit()
-            try:
-                summary = wiki_lib.summary(
-                    query, sentences=5, auto_suggest=True)
-                result  = f"Page: {query}\nSummary: {summary[:800]}"
-                _wiki_cache[cache_key] = result
-                return result
-            except Exception as e4:
-                print(f"[Wikipedia RETRY ERROR] "
-                      f"type={type(e4).__name__} | msg={e4}")
-        return (f"Wikipedia lookup failed for '{query}'. "
-                f"Try a shorter search term.")
+        print(f"[Wikipedia ERROR] type={type(e).__name__} | msg={e}")
+        return f"Wikipedia lookup failed for '{query}'. Try rephrasing."
 
 # ---------------------------------------------------------------------------
 # 3. Calculator
