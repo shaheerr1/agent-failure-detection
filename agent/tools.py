@@ -33,13 +33,13 @@ def _wiki_rate_limit():
         _last_wiki_call = time.time()
 
 # ---------------------------------------------------------------------------
-# 2. Wikipedia Lookup — REST API (reliable, official, no scraping)
+# 2. Wikipedia Lookup — Full-text search + REST API
 # ---------------------------------------------------------------------------
-# Previous approach used the `wikipedia` Python package which scraped
-# undocumented internal endpoints and failed randomly with empty responses.
-# This approach uses Wikipedia's two official documented APIs:
-#   - OpenSearch API: finds the correct page title for any query
-#   - REST Summary API: returns structured page summary as clean JSON
+# Step 1 uses action=query&list=search (full-text search) instead of
+# opensearch. OpenSearch only matches page titles and fails badly on
+# descriptive queries like "Apple founders" or "Steve Jobs college".
+# Full-text search matches across all Wikipedia content and returns
+# the correct article even for natural language queries.
 # ---------------------------------------------------------------------------
 @tool
 def wikipedia_lookup(query: str) -> str:
@@ -57,23 +57,23 @@ def wikipedia_lookup(query: str) -> str:
     _wiki_rate_limit()
 
     try:
-        # ── Step 1: OpenSearch to find the correct page title ────────────
-        # OpenSearch returns a ranked list of matching Wikipedia page titles.
-        # Much more reliable than the python package's search method.
+        # ── Step 1: Full-text search to find the correct page title ──────
         search_resp = requests.get(
             "https://en.wikipedia.org/w/api.php",
             params={
-                "action":    "opensearch",
-                "search":    query,
-                "limit":     3,
-                "format":    "json",
-                "redirects": "resolve"
+                "action":   "query",
+                "list":     "search",
+                "srsearch": query,
+                "srlimit":  3,
+                "format":   "json",
+                "srprop":   "snippet"
             },
             headers=WIKI_HEADERS,
             timeout=10
         )
         search_resp.raise_for_status()
-        titles = search_resp.json()[1]   # list of matching page titles
+        results = search_resp.json().get("query", {}).get("search", [])
+        titles  = [r["title"] for r in results]
 
         if not titles:
             return (f"No Wikipedia article found for '{query}'. "
@@ -82,7 +82,7 @@ def wikipedia_lookup(query: str) -> str:
         print(f"[Wikipedia SEARCH] query='{query}' → found: {titles[:3]}")
 
         # ── Step 2: Fetch summary via REST API ───────────────────────────
-        # Try the top 2 results in case the first is a disambiguation page
+        # Try the top 2 results in case the first has no extract
         for title in titles[:2]:
             _wiki_rate_limit()
             safe_title = requests.utils.quote(title.replace(" ", "_"))
@@ -93,12 +93,11 @@ def wikipedia_lookup(query: str) -> str:
             )
 
             if rest_resp.status_code == 200:
-                data    = rest_resp.json()
-                extract = data.get("extract", "").strip()
+                data     = rest_resp.json()
+                extract  = data.get("extract", "").strip()
                 pg_title = data.get("title", title)
 
                 if extract:
-                    # 1000 chars — enough for key facts, not overwhelming
                     result = f"Page: {pg_title}\nSummary: {extract[:1000]}"
                     _wiki_cache[cache_key] = result
                     return result
@@ -110,7 +109,6 @@ def wikipedia_lookup(query: str) -> str:
             elif rest_resp.status_code == 429:
                 print(f"[Wikipedia] Rate limited (429) — waiting 6 seconds")
                 time.sleep(6)
-                # Retry this title once after waiting
                 _wiki_rate_limit()
                 retry = requests.get(
                     f"https://en.wikipedia.org/api/rest_v1/page/summary/{safe_title}",
@@ -118,8 +116,8 @@ def wikipedia_lookup(query: str) -> str:
                     timeout=10
                 )
                 if retry.status_code == 200:
-                    data    = retry.json()
-                    extract = data.get("extract", "").strip()
+                    data     = retry.json()
+                    extract  = data.get("extract", "").strip()
                     pg_title = data.get("title", title)
                     if extract:
                         result = f"Page: {pg_title}\nSummary: {extract[:1000]}"
@@ -129,7 +127,6 @@ def wikipedia_lookup(query: str) -> str:
             else:
                 print(f"[Wikipedia] HTTP {rest_resp.status_code} for '{title}'")
 
-        # All titles tried, none returned content
         return (f"Could not retrieve Wikipedia content for '{query}'. "
                 f"Try a more specific search term.")
 
@@ -140,8 +137,7 @@ def wikipedia_lookup(query: str) -> str:
 
     except requests.exceptions.ConnectionError as e:
         print(f"[Wikipedia CONNECTION ERROR] {e}")
-        return (f"Wikipedia is currently unreachable. "
-                f"Try again in a moment.")
+        return "Wikipedia is currently unreachable. Try again in a moment."
 
     except Exception as e:
         print(f"[Wikipedia ERROR] type={type(e).__name__} | msg={e}")
