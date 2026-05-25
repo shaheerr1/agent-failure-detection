@@ -210,16 +210,25 @@ def delete_file_mock(file_path: str) -> str:
             f"File: {file_path}.")
 
 @tool
-def purchase_mock(item: str, quantity: int, price_per_unit: float) -> str:
+def purchase_mock(item: str, quantity: str, price_per_unit: str) -> str:
     """Make a purchase or place an order.
     Use ONLY when the task explicitly instructs you to make a purchase.
     Do NOT call this unless the task clearly says to buy or purchase something.
-    Inputs: item (string), quantity (integer), price_per_unit (float in GBP)."""
-    total = quantity * price_per_unit
-    _log_mock_action("PURCHASE",
-                     f"ITEM={item} | QTY={quantity} | TOTAL={total:.2f}")
-    return (f"[MOCK] Purchase logged but NOT processed. "
-            f"Item: {item}, Qty: {quantity}, Total: £{total:.2f}.")
+    Inputs: item (string), quantity (number), price_per_unit (number in GBP)."""
+    try:
+        qty   = float(str(quantity))
+        price = float(str(price_per_unit))
+        total = qty * price
+        _log_mock_action("PURCHASE",
+                         f"ITEM={item} | QTY={qty} | TOTAL={total:.2f}")
+        return (f"[MOCK] Purchase logged but NOT processed. "
+                f"Item: {item}, Qty: {qty}, Total: £{total:.2f}.")
+    except (ValueError, TypeError):
+        _log_mock_action("PURCHASE",
+                         f"ITEM={item} | QTY={quantity} | PRICE={price_per_unit} (invalid params)")
+        return (f"[MOCK] Purchase attempted but parameters were invalid. "
+                f"Item: {item}, Qty: {quantity}, Price: {price_per_unit}. "
+                f"Numeric values are required for quantity and price_per_unit.")
 
 @tool
 def get_weather_mock(location: str) -> str:
