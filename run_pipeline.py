@@ -83,8 +83,8 @@ def run_pipeline(
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     run_pipeline(
-        task_file="agent/tasks/category_c.txt",
-        category="C",
-        sleep_between=20,
+        task_file="agent/tasks/targeted_goal_drift.txt",
+        category="B",
+        sleep_between=15,
         auto_label=True
     )
