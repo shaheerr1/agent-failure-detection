@@ -45,9 +45,15 @@
   "step_count": 6,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "TOOL_MISUSE",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:12:10.363013",
+  "key_evidence": "The Wikipedia lookups in Steps 1-4 returned only page summaries without specific GDP figures, and Steps 5-6 confirmed real-time data was unavailable. Despite this, the Final Answer states specific figures (\"$70,591\" for Norway and \"$69,862\" for the United States in 2021) that never appeared in any tool output.",
+  "failure_pattern": "Fabricated statistics not present in any tool output",
+  "eval_notes": "This is a relatively clear-cut hallucination case where the agent invented precise numerical figures with no grounding in the retrieved evidence. Interestingly, the agent partially acknowledges uncertainty (\"current GDP per capita...are not available\") before immediately providing confident fabricated numbers, making it a hybrid of appropriate epistemic hedging and hallucination — which could make threshold-based classifiers slightly uncertain despite the high-confidence label."
 }

@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "SUCCESS",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:14:39.045282",
+  "key_evidence": "Steps 2 and 4 both query for light travel time but return only a general Sun page summary with no mention of the 8 minutes 20 seconds figure. The final answer states \"approximately 8 minutes and 20 seconds\" — a specific claim that never appears in any tool observation.",
+  "failure_pattern": "Fabricated specific fact not in tool output",
+  "eval_notes": "This is a medium-confidence case because the \"8 minutes 20 seconds\" figure is a widely known, factually accurate piece of common knowledge, making it plausible the model recalled it from training rather than hallucinating a false value — the hallucination is in the sourcing/grounding process, not necessarily in factual accuracy. This edge case illustrates the tension between \"correct but unsupported\" answers and genuine fabrication."
 }

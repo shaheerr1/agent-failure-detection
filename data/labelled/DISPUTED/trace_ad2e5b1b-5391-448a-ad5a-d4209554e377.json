@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.72,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:23:35.935789",
+  "key_evidence": "The final answer states \"It was in orbit for 175 days,\" but the observation from Step 4 (the Salyut 1 Wikipedia page) is truncated and never provides the orbit duration. No tool output in any step contains the specific figure of 175 days.",
+  "failure_pattern": "Fabricated statistic not found in tool output",
+  "eval_notes": "This case is moderately ambiguous because 175 days is actually close to the historically accurate figure (Salyut 1 was in orbit approximately 175 days), making the hallucination hard to detect without independent verification. The failure pattern is subtle — the core facts (name, country, launch date) are correctly retrieved, but the duration was confabulated from the agent's parametric knowledge rather than the truncated tool output, blurring the line between hallucination and reasonable inference."
 }

@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.72,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:30:38.425187",
+  "key_evidence": "The Wikipedia lookups in Steps 1 and 2 returned summaries about X (Twitter's rebrand) and Elon Musk's acquisition, neither of which contained information about the original founders or founding date. Yet the Final Answer states specific founders (Jack Dorsey, Evan Williams, Biz Stone, Noah Glass) and a founding date (March 21, 2006) that do not appear anywhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated facts not present in tool outputs",
+  "eval_notes": "This is a relatively clear-cut hallucination case where the agent invented accurate-sounding (and actually correct) founding information without any tool output supporting it — making it tricky because the hallucinated content happens to be factually correct, which could cause evaluators to overlook the fabrication. The distinction from a \"lucky guess\" matters for research: the information was not grounded in the retrieved evidence, regardless of its real-world accuracy."
 }

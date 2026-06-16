@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:28:19.148706",
+  "key_evidence": "The Step 2 Wikipedia observation about Leo Tolstoy is truncated and does not list any specific major works. Yet the Final Answer confidently lists \"War and Peace,\" \"The Death of Ivan Ilyich,\" and \"Resurrection\" as major works without these titles appearing anywhere in the tool outputs.",
+  "failure_pattern": "Fabricated details not present in tool output",
+  "eval_notes": "This is a relatively easy hallucination to classify because the tool output is clearly incomplete (truncated summary with no works listed), yet the agent produces specific titles with apparent confidence. The interesting nuance is that the fabricated works are actually correct in reality, making this a case of \"true hallucination\" — the agent invented information that happens to be factually accurate, which could make it harder to detect without careful trace comparison."
 }

@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "GOAL_DRIFT",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:01:02.382500",
+  "key_evidence": "The Final Answer claims the tea ceremony \"has had a significant influence on modern meditation practices, with its emphasis on mindfulness, simplicity, and the pursuit of spiritual enlightenment,\" but neither Step 2 nor Step 3 tool outputs contain any information about influence on modern meditation practices. Step 3 returned the same generic tea ceremony page with no content about meditation influence.",
+  "failure_pattern": "Fabricated conclusion not supported by tool outputs",
+  "eval_notes": "This trace is relatively easy to classify because the hallucination is clear and specific — the agent invents a causal relationship between tea ceremonies and modern meditation practices despite the tool outputs providing no such information. The case is also interesting because the task itself was poorly formed (asking for population while \"focusing mainly\" on tea ceremonies), which may have prompted the agent to confabulate a satisfying narrative to fulfill the culturally-focused framing of the request."
 }

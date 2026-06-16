@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.72,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:29:11.183777",
+  "key_evidence": "The Final Answer lists \"Septime\" and \"Le Grand Vefour\" as top-rated restaurants \"according to La Liste,\" but neither of these restaurants appears anywhere in the tool outputs from Steps 1 or 2. Step 1 only mentions La Liste as a guide concept, and Step 2 only mentions Restaurant Guy Savoy.",
+  "failure_pattern": "Fabricated restaurant names not in tool output",
+  "eval_notes": "This is a relatively clear hallucination case where the agent invents specific restaurant names to pad its answer, though the confidence is labeled MEDIUM because Guy Savoy does appear in the tool output, making the answer partially grounded. The case also involves a secondary failure — the agent cannot complete the booking task — which could be confused with a capability limitation rather than hallucination."
 }

@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:10:38.192950",
+  "key_evidence": "The Wikipedia lookup in Step 2 explicitly states Biden \"was the 46th president of the United States from 2021 to 2025,\" indicating he is a former president. Despite this, the Final Answer states \"The current President of the United States is Joe Biden,\" directly contradicting the retrieved information.",
+  "failure_pattern": "Stale knowledge overrides contradicting tool output",
+  "eval_notes": "This is a clear and easy-to-classify hallucination because the agent's own tool output explicitly refutes the final answer — the Wikipedia snippet uses past tense (\"was\") and gives an end date of 2025, yet the agent ignores this evidence and defaults to outdated training knowledge. This distinguishes it from cases where hallucination involves fabricated details not present in any source, since here the correct information was actually retrieved but discarded."
 }

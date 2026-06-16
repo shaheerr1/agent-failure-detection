@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.55,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:21:06.151366",
+  "key_evidence": "The Wikipedia tool output in Step 1 contains information about Egypt and the canal's length (193.30 km) but does NOT mention the opening date of November 17, 1869. The Final Answer states \"The Suez Canal was opened on November 17, 1869\" — a specific date not present anywhere in the observed tool output.",
+  "failure_pattern": "Fabricated specific date not in tool output",
+  "eval_notes": "This is a medium-confidence hallucination case because the opening date of November 17, 1869 is historically accurate, making it hard to detect without comparing strictly against tool outputs — the agent likely \"knew\" this from training data and inserted it without grounding it in the retrieved evidence. This distinguishes it from a clearly false hallucination; the failure is about ungrounded generation, not factual incorrectness per se."
 }

@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.72,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:19:39.483192",
+  "key_evidence": "The Wikipedia tool outputs across Steps 1-3 are truncated and never explicitly mention the number of Academy Awards won. The Final Answer states \"won 7 Academy Awards\" — this specific number does not appear anywhere in the observed tool outputs, making it an unsupported claim introduced by the model.",
+  "failure_pattern": "Fabricated statistic not present in tool outputs",
+  "eval_notes": "This case is interesting because the answer is actually factually correct (Schindler's List did win 7 Academy Awards), making it a \"lucky hallucination\" — the model confabulated a detail not supported by its retrieved context, yet arrived at the right answer. This creates ambiguity for classifiers: the label is technically justified as hallucination (information not grounded in observations), but the factual accuracy makes it harder to detect without scrutinizing the tool outputs carefully."
 }

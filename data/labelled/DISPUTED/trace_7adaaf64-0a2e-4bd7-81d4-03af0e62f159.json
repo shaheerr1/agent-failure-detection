@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:14:03.104102",
+  "key_evidence": "The Wikipedia tool output in Step 2 was truncated and never specified the total count of 32 teeth or the breakdown (8 incisors, 4 canines, 8 premolars, 12 molars). The Final Answer presents these specific numbers and distribution as fact despite them not appearing anywhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated specific numbers not in tool output",
+  "eval_notes": "This is an interesting case because the final answer happens to be factually correct (32 teeth is the standard answer), yet it still qualifies as hallucination since the agent invented the numerical details rather than deriving them from the truncated tool output. This makes it harder to classify by fact-checking alone, highlighting that hallucination is about grounding, not just factual accuracy."
 }

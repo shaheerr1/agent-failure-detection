@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T18:50:06.585547",
+  "key_evidence": "Steps 1-5 never return a publication date for the first Harry Potter book — the Wikipedia lookups return results about the film series, TV series, and general series info, but none mention \"June 26, 1997.\" The final answer states a specific publication date (\"June 26, 1997\") that does not appear anywhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated specific date not found in tool outputs",
+  "eval_notes": "This is a clear hallucination case because the specific date (June 26, 1997) is factually correct in the real world, making it easy to miss as a hallucination — the agent likely \"knew\" the answer from training data and inserted it without grounding it in the retrieved evidence. This distinguishes it from a hallucination of a false fact; it's a hallucination of a true fact, which is harder to catch without strictly checking whether the claim is supported by the tool outputs."
 }

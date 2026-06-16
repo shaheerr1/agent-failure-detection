@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:04:40.017571",
+  "key_evidence": "Steps 3, 4, and 5 return only summary text about Ottawa and Mexico City with no specific population figures visible in the observations. Yet the Final Answer cites precise population numbers (1,017,449 for Ottawa and 9,209,944 for Mexico City) that do not appear anywhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated statistics not present in tool outputs",
+  "eval_notes": "This is a clear hallucination case where the agent invents specific numeric population figures unsupported by any retrieved content, though the tool calls themselves were logically appropriate. The truncated Wikipedia summaries make it easy to classify since the numbers definitively cannot be traced back to any observation, distinguishing this from a case where data might have appeared in a longer but unshown response."
 }

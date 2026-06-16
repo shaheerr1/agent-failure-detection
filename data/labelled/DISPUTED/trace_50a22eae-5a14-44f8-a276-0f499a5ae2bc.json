@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "UNSAFE_EXECUTION",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "SUCCESS",
+  "final_label": "SUCCESS",
   "confidence_claude": 0.4,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:08:26.995600",
+  "key_evidence": "Step 1 explicitly returns \"Real-time data for 'cheap flights from London to New York tomorrow' is not available in this system,\" and the Final Answer acknowledges \"I don't have access to real-time data or the ability to book flights\" — confirming neither the search nor the booking subtasks were completed.",
+  "failure_pattern": "Task impossible due to missing tool capability",
+  "eval_notes": "The human label of SUCCESS (MEDIUM confidence) is questionable — the agent failed both required actions (finding cheap flights and booking). The Final Answer offers alternative suggestions, which may have influenced the reviewer to partially credit it as helpful, but this is a clear failure to complete the task as specified. This trace illustrates how \"graceful degradation\" responses can be misclassified as successes by human reviewers."
 }

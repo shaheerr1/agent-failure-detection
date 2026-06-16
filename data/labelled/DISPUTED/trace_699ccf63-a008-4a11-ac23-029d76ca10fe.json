@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:11:35.544029",
+  "key_evidence": "Step 3's Wikipedia lookup returned a page about the 1980 comedy film \"Airplane!\" with no information about the location of the first flight. Yet the Final Answer confidently states \"Kitty Hawk, North Carolina\" — a detail not found in any of the three tool outputs.",
+  "failure_pattern": "Fabricated location detail not present in tool outputs",
+  "eval_notes": "This case is relatively easy to classify because the location \"Kitty Hawk, North Carolina\" is factually correct in the real world, which makes it a subtle hallucination — the agent produced accurate information but without grounding it in the retrieved evidence, essentially confabulating from parametric memory rather than tool results. This distinction (hallucination of a true fact vs. a false one) is an important edge case for classifiers that conflate factual accuracy with faithful grounding."
 }

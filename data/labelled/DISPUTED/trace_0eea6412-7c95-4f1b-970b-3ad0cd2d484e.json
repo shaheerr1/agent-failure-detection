@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "LOOP",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T18:46:01.841632",
+  "key_evidence": "Steps 1-4 all return truncated Wikipedia summaries that contain no specific dates whatsoever. Despite this, the Final Answer states \"World War I started on July 28, 1914, and ended on November 11, 1918\" — dates that never appeared in any tool observation.",
+  "failure_pattern": "Fabricated specific dates not present in tool outputs",
+  "eval_notes": "This is a clear hallucination case where the agent confidently presents precise historical dates that were never returned by any tool call — the observations were all truncated and dateless. Interestingly, the dates cited (July 28, 1914 and November 11, 1918) happen to be factually correct, which makes this trace particularly tricky to classify: the answer is accurate but the reasoning process is hallucinated, illustrating that hallucination can produce correct outputs while still representing a fundamental agent failure."
 }

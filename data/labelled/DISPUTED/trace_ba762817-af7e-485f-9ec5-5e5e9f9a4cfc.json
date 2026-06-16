@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "SUCCESS",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
-  "final_label": "DISPUTED",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T19:25:52.033143",
+  "key_evidence": "Step 2 retrieves a Wikipedia article on World War II, but the summary is truncated and contains no mention of the end year 1945. Steps 3 and 4 fail to retrieve additional information, yet the Final Answer confidently states \"World War Two ended in 1945\" without this fact appearing anywhere in the observed tool outputs.",
+  "failure_pattern": "Correct answer stated without grounding in retrieved content",
+  "eval_notes": "This is an interesting edge case because the final answer (1945) is factually correct, yet it qualifies as hallucination since the agent fabricated confidence in a specific fact not present in any tool output. This makes it potentially difficult to classify for evaluators who conflate factual accuracy with proper grounding — the failure is about unsupported inference, not factual error."
 }
