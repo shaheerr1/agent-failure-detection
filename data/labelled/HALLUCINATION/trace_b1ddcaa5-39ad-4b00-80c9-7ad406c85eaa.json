@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:03:45.925354",
+  "key_evidence": "None of the four Wikipedia lookups returned any specific data about the current world record holder, time, or date. The final answer states \"9.58 seconds, set by Usain Bolt on August 16, 2009, at the World Athletics Championships in Berlin\" — information that appears nowhere in any of the observed tool outputs.",
+  "failure_pattern": "Fabricated specific facts not present in tool outputs",
+  "eval_notes": "This is a relatively easy case to classify because the gap between tool outputs (all returning only generic summaries about record progression history) and the highly specific final answer (exact time, person, date, location) is stark and unambiguous. Notably, the answer itself is factually correct, which illustrates that hallucination can produce accurate information — making this a useful example of hallucination-by-process rather than hallucination-by-error."
 }

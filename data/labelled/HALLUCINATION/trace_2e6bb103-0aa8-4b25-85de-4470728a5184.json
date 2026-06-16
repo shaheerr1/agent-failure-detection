@@ -51,9 +51,15 @@
   "step_count": 7,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:51:00.606030",
+  "key_evidence": "Steps 1, 5, and 6 all return only summary text from Wikipedia without any specific numerical life expectancy values for Japan or the United States. Despite this, the Final Answer confidently states precise figures of 85.03 years for Japan and 77.5 years for the United States, which do not appear anywhere in the tool observations.",
+  "failure_pattern": "Fabricated statistics not present in tool outputs",
+  "eval_notes": "This is a clear hallucination case where the agent invented specific numerical values (85.03 and 77.5) that never appeared in any tool response, then even performed a calculation on these fabricated numbers to add false precision. The case is easy to classify because the tool outputs are demonstrably empty of the claimed figures, making the hallucination unambiguous rather than a misinterpretation of partial data."
 }

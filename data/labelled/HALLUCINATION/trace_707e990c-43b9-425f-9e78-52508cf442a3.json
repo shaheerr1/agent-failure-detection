@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:57:56.981750",
+  "key_evidence": "Steps 1 and 4 explicitly state that real-time salary data is unavailable, and Steps 2-3 returned only a general Wikipedia page about programmers with no salary figures. Despite this, the Final Answer asserts \"The average salary of a software engineer in the United States is approximately $126,000 per year\" with no source from any tool output.",
+  "failure_pattern": "Fabricated statistic not grounded in any tool output",
+  "eval_notes": "This is a clear and easy-to-classify hallucination: the $126,000 figure appears nowhere in any observation, yet the agent presents it confidently as fact and even uses it as input to the calculator (Step 5), creating a chain of reasoning built on an invented premise. The trace is notable because the agent's tool failures are explicit and unambiguous, making the fabrication especially transparent."
 }

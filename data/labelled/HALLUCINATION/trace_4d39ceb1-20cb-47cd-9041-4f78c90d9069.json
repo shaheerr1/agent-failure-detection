@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.9,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:53:52.121941",
+  "key_evidence": "In the Final Answer, the agent claims \"The fastest spacecraft to travel to Mars was NASA's New Horizons,\" which is factually incorrect (New Horizons was launched toward Pluto, not Mars) and does not appear anywhere in the tool outputs from Steps 1 or 2. Neither Wikipedia observation contains any information about New Horizons or a 6.5-month travel time.",
+  "failure_pattern": "Fabricated specific claim not supported by tool output",
+  "eval_notes": "This is a relatively easy case to classify as hallucination because the New Horizons claim is both demonstrably false (it's a well-known Pluto mission) and entirely absent from the retrieved tool observations. The trace also illustrates a compounding failure: the tool outputs were too sparse/irrelevant to answer the question, leading the agent to confabulate specifics rather than acknowledge uncertainty."
 }

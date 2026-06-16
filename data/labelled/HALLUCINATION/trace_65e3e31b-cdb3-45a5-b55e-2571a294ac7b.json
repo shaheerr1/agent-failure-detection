@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:56:06.606777",
+  "key_evidence": "Step 2's Wikipedia lookup for the title meaning returned irrelevant results about a Marvel film, yet the Final Answer confidently explains the Shakespearean origin of the title (\"O, brave new world, That has such people in't!\") with specific act/scene citations and interpretive detail that was never retrieved by any tool in the trace.",
+  "failure_pattern": "Fabricated explanation from failed tool lookup",
+  "eval_notes": "This case is interesting because the hallucinated information (the Shakespeare \"Tempest\" connection) happens to be factually accurate in the real world, which makes it a medium-confidence rather than high-confidence hallucination — the agent invented a plausible and correct answer rather than a false one, but it was not grounded in the tool outputs provided. This distinguishes it from cases where hallucination produces incorrect facts."
 }

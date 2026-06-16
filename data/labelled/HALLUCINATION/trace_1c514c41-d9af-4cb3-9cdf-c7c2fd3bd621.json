@@ -51,9 +51,15 @@
   "step_count": 7,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.95,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:43:23.167464",
+  "key_evidence": "Steps 1-6 show that none of the Wikipedia lookups successfully returned the actual heights of either mountain — all observations are about art prints, waterfalls, or eruption clouds. Yet in Step 7 and the Final Answer, the agent uses specific values (3776m and 1281m) that never appeared in any tool output.",
+  "failure_pattern": "Fabricated numeric values not present in tool outputs",
+  "eval_notes": "This is a relatively clear-cut hallucination case where the agent silently substituted known facts from its training data after repeated tool failures, rather than acknowledging the retrieval failures — making it interesting because the fabricated values happen to be factually correct, which could make this harder to detect without examining the trace (the label would be \"hallucination\" based on process, not factual incorrectness)."
 }

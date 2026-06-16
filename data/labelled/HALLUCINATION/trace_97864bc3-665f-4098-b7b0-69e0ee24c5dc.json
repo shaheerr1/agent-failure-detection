@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:00:09.525063",
+  "key_evidence": "Steps 2-5 returned Wikipedia pages that contained no specific distance or flight time data (a runway accident report, a distance education school, and generic \"Longest flights\" page summaries). Despite this, the Final Answer states specific figures (\"approximately 17,820 kilometres\" and \"around 21 hours\") that appear nowhere in any tool output.",
+  "failure_pattern": "Fabricated specific figures not found in tool outputs",
+  "eval_notes": "This is a relatively clear-cut hallucination case because the tool observations are explicitly visible and contain no numerical data supporting the final answer — making it easy to verify the fabrication. The figures given (17,820 km, 21 hours) are plausible real-world approximations, which makes the hallucination harder to detect without checking the trace, illustrating how confident-sounding but unsupported answers can appear credible."
 }

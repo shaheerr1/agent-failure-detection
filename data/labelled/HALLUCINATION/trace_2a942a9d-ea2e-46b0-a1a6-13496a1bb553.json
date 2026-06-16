@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:49:31.997984",
+  "key_evidence": "In the Final Answer, the agent states \"Animal Farm\" as a notable work (which is correct) but then introduces \"Brave New World\" with a confusing self-correction (\"is not written by him\"), suggesting fabrication followed by partial retraction. The second Wikipedia lookup in Step 2 returned the same Nineteen Eighty-Four page without any information about Orwell's other works, yet the agent listed multiple specific titles not present in any tool output.",
+  "failure_pattern": "Fabricated author bibliography not grounded in tool output",
+  "eval_notes": "This trace is interesting because most of the listed works (Animal Farm, Burmese Days, Road to Wigan Pier, Homage to Catalonia) are factually correct, making hallucination harder to detect — the failure is subtle and mixed with accurate information. The \"Brave New World\" mention with immediate self-correction reveals the agent's uncertainty, distinguishing this from confident confabulation and making it an instructive edge case for grading partial hallucinations."
 }

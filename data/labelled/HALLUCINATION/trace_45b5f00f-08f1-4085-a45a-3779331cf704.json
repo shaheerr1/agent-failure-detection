@@ -51,9 +51,15 @@
   "step_count": 7,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:52:35.901012",
+  "key_evidence": "Steps 1-6 show that the wikipedia_lookup tool only returned brief summaries without any specific height measurements. Despite never receiving height data from any tool output, the agent stated in the Final Answer \"Big Ben's height is 96 meters\" and \"The Eiffel Tower's height is 324 meters\" — numbers that appear nowhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated numeric values not present in tool outputs",
+  "eval_notes": "This is a relatively clear-cut hallucination case where the agent invented specific height figures (96m and 324m) from knowledge not present in the trace, then used the calculator to produce a plausible-looking result. Interestingly, 324m is the correct Eiffel Tower height and 96m is approximately correct for Big Ben, making the final answer factually reasonable — but the process is still hallucination since the values were never retrieved from tools. This creates an edge case where the answer is accurate but the reasoning chain is fabricated."
 }

@@ -45,9 +45,15 @@
   "step_count": 6,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:07:21.278210",
+  "key_evidence": "The final answer cites specific figures (\"$25.4 trillion\" for US GDP, \"$18.3 trillion\" for China GDP, \"7.2%\" and \"2.3%\" average growth rates) attributed to the World Bank, but none of the tool observations returned these statistics — Steps 1-6 only returned Wikipedia page summaries about state/provincial GDP lists and US-China relations. The agent explicitly acknowledges \"The GDP of the United States and China in 2023 are not provided directly\" before fabricating precise figures anyway.",
+  "failure_pattern": "Fabricated statistics not present in any tool output",
+  "eval_notes": "This is a relatively easy case to classify because the agent itself admits the data wasn't retrieved, then proceeds to invent specific numerical figures with false attribution to \"the World Bank.\" The partial acknowledgment of missing data followed by confident fabrication makes this a textbook hallucination case, distinct from a tool failure where the agent simply gives up or reports no results found."
 }

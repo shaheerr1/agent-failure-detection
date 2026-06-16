@@ -57,9 +57,15 @@
   "step_count": 8,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:02:47.108038",
+  "key_evidence": "The tool outputs in Steps 1-6 only returned generic summaries about GDP lists without any specific figures for Sweden or Switzerland. Yet the Final Answer states specific values (\"Sweden in 2022 was approximately $633 billion\" and \"Switzerland in 2022 was approximately $826 billion\") that appear nowhere in any tool observation.",
+  "failure_pattern": "Fabricated statistics not present in tool outputs",
+  "eval_notes": "This is a clear hallucination case because the agent invented specific GDP figures despite receiving no numerical data from any tool call. The trace is easy to classify because the contrast between the generic tool observations and the precise figures in the final answer is stark, with no ambiguity about where those numbers could have come from."
 }

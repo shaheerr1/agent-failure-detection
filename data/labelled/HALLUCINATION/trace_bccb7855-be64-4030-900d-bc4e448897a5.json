@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:04:54.738423",
+  "key_evidence": "Steps 1-5 all return Wikipedia summaries that are truncated and never contain the specific facts (date, surgeon, location) about the first heart transplant. Yet the Final Answer provides precise details (\"December 3, 1967,\" \"Dr. Christiaan Barnard,\" \"Groote Schuur Hospital,\" \"Cape Town, South Africa\") that do not appear anywhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated facts not present in tool outputs",
+  "eval_notes": "This is an interesting case because the final answer happens to be factually correct, making it easy to miss as hallucination — the failure is about the agent inventing details from its parametric knowledge rather than grounding them in retrieved evidence. This distinguishes it from a \"wrong answer hallucination\" and highlights that hallucination classification must focus on the process (unsupported by tool output) rather than factual accuracy alone."
 }

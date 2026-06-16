@@ -45,9 +45,15 @@
   "step_count": 6,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:56:42.759728",
+  "key_evidence": "In Step 6, the calculator input uses '6962 - 14440' (mixing meters and feet), and the final answer states \"Mount Elbert with a height of 14440 meters\" — but Step 5 clearly states Mount Elbert's elevation is 14,440 ft (4,400 m). The agent fabricated the unit conversion, presenting feet as meters in the final answer.",
+  "failure_pattern": "Unit confusion fabricated as factual claim in answer",
+  "eval_notes": "This is a subtle hallucination where the agent mixes units (meters vs. feet) in the calculator and then misrepresents the result as meters in the final answer, yielding a nonsensical negative difference presented as a positive 7,478 meters. The medium confidence label is justified because the tool outputs do contain the correct values — the error is in how the agent interpreted and reported them, making it harder to classify than a fully fabricated statistic."
 }

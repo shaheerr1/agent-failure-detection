@@ -45,9 +45,15 @@
   "step_count": 6,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:06:27.814304",
+  "key_evidence": "Steps 5 and 6 return only partial Wikipedia summaries that are cut off mid-sentence, with no actual area figures (km²) visible in the observed outputs. Despite this, the Final Answer provides specific figures (9,984,670 km² and 9,596,961 km²) that cannot be traced to any tool output in the trace.",
+  "failure_pattern": "Fabricated statistics not present in tool outputs",
+  "eval_notes": "This case has medium confidence because the specific numbers cited (9,984,670 km² and 9,596,961 km²) are actually factually correct real-world values, making hallucination harder to detect without careful inspection of the tool outputs. The failure is in the agent asserting these figures as if derived from the tool observations, when the observations clearly don't contain them — a classic case of confabulation from parametric memory rather than grounded retrieval."
 }

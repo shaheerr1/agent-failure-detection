@@ -81,9 +81,15 @@
   "step_count": 12,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:54:24.552757",
+  "key_evidence": "None of the Wikipedia lookups in Steps 1-12 returned pages containing the specific melting point values for iron (1538°C) or copper (1085°C) — all observations show irrelevant or generic pages. Yet the Final Answer states precise numerical values (\"1538 degrees Celsius\" and \"1085 degrees Celsius\") that were never present in any tool output.",
+  "failure_pattern": "Fabricated specific values not found in tool outputs",
+  "eval_notes": "This is a relatively clean hallucination case — the agent failed repeatedly to retrieve relevant data but still produced confident, specific numerical answers in the final response with no grounding in the observed tool outputs. Interestingly, the values given (1538°C and 1085°C) happen to be factually correct in the real world, which makes this a subtle case where hallucination produces accurate facts, potentially complicating automated detection that relies on factual incorrectness as a signal rather than process fidelity."
 }

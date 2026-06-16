@@ -45,9 +45,15 @@
   "step_count": 6,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": null,
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.0,
-  "agreement": false
+  "agreement": false,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:57:14.881690",
+  "key_evidence": "Steps 1-6 all return Wikipedia pages about Los Angeles with no distance data whatsoever. The final answer states \"The driving distance from New York to Los Angeles is approximately 2,796 miles\" — a specific figure that appears nowhere in any tool observation.",
+  "failure_pattern": "Fabricated specific statistic not in any tool output",
+  "eval_notes": "This is a clear hallucination case where the agent failed to retrieve relevant data across six attempts (stuck in a retrieval loop) but then confidently presented a precise numerical answer (2,796 miles / 4,498 km) as if it came from the tools. The final answer is actually numerically reasonable/accurate in the real world, which makes this an interesting edge case — the hallucination produces a correct-seeming result, making it harder to detect without examining the trace, and illustrating that factual accuracy alone cannot distinguish hallucination from grounded reasoning."
 }

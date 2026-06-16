@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:05:18.159438",
+  "key_evidence": "The Wikipedia lookup on \"Steve Jobs Zen Buddhism\" at Step 2 returned a page about Laurene Powell Jobs with no relevant content about Zen Buddhism. Nevertheless, the Final Answer fabricates specific claims such as Jobs being influenced by \"D.T. Suzuki,\" the concept of \"wabi-sabi,\" and detailed Zen design principles — none of which appear in any tool output.",
+  "failure_pattern": "Fabricated details unsupported by retrieved tool output",
+  "eval_notes": "This is a clear hallucination case because the agent generated confident, specific claims (named figures, named concepts) entirely without grounding in the observation data, which was irrelevant to the query. The trace is easy to classify because the gap between tool output and final answer is stark and unambiguous — no retrieved content supports any of the Zen Buddhism claims made."
 }

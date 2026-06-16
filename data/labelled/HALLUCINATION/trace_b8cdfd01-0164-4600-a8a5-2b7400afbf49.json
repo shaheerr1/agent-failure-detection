@@ -45,9 +45,15 @@
   "step_count": 6,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.72,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:04:34.140663",
+  "key_evidence": "Steps 1–5 all return city population lists and never provide Indonesia's total national population figure. Yet in the Final Answer, the agent states \"The population of Indonesia is approximately 279 million people\" — a number that never appeared in any tool observation, making it a fabricated value used as input to the Step 6 calculation.",
+  "failure_pattern": "Fabricated statistic not grounded in tool output",
+  "eval_notes": "This case is relatively easy to classify because the critical number (279 million) is entirely absent from all retrieved observations, yet the agent presents it with confidence as a factual finding. What makes it interesting is that 279 million is a plausible real-world estimate for Indonesia's population, so the hallucination could be mistaken for background knowledge use rather than fabrication — the distinction being that the agent never disclosed it was using prior knowledge instead of retrieved evidence."
 }

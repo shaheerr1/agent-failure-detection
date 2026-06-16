@@ -69,9 +69,15 @@
   "step_count": 10,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.95,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:50:30.409186",
+  "key_evidence": "None of the Wikipedia lookups in Steps 1-10 returned pages containing the specific heights of Table Mountain (1,086 m) or Signal Hill (350 m) in Cape Town. The final answer presents precise numerical values (\"1,086 meters\" and \"350 meters\") that were never found in any observed tool output, making these figures fabricated.",
+  "failure_pattern": "Fabricated specific values not found in tool outputs",
+  "eval_notes": "This trace is relatively easy to classify because the disconnect between tool outputs (all irrelevant pages) and the confident final answer with precise numbers is stark and unambiguous. It's notable that the agent also performed a semantic loop (Steps 4 and 6 repeat the exact same query with the exact same result), compounding the failure before ultimately hallucinating the answer rather than admitting it couldn't find the information."
 }

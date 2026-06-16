@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:06:59.764555",
+  "key_evidence": "The Wikipedia lookup on Thames River returned information about the Silk Road, not Roman trade routes on the Thames. Despite this, the final answer states \"The Thames River played a significant role in ancient Roman trade routes...facilitating the exchange of goods such as grain, wine, and olive oil\" — content not found in any tool output.",
+  "failure_pattern": "Fabricated historical details not present in tool outputs",
+  "eval_notes": "This trace is interesting because the hallucination is partially obscured by the fact that one lookup did return relevant demographic data (Step 2 correctly supports the population figure), making the trace a mixed case of partial grounding and fabrication. The Roman trade route details were generated from model parametric knowledge after the relevant tool call failed, rather than being sourced from retrieved evidence, which makes it a moderate-confidence hallucination rather than an obvious one."
 }

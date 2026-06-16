@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:06:00.894423",
+  "key_evidence": "Step 3 tool output states \"Of the 2,208 passengers and crew aboard, approximately 1,500 died,\" but the Final Answer inverts this, stating \"approximately 1,500 survived\" — the opposite of what the source says. The actual number of survivors was approximately 710 (2,208 minus ~1,500 deaths).",
+  "failure_pattern": "Inverted statistic from tool output",
+  "eval_notes": "This is a clear and high-confidence hallucination where the agent reversed the meaning of the retrieved data, confusing deaths with survivors. It is easy to classify because the contradiction between the tool output and the final answer is explicit and direct, with no ambiguity in the source text."
 }

@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:48:55.790295",
+  "key_evidence": "Step 2's Wikipedia lookup for \"Area of United States\" returned irrelevant content about metropolitan statistical areas, not the actual US land area. However, Step 3 uses the value 9,161,928 km² for the US, which never appeared in any tool output, meaning it was fabricated by the agent.",
+  "failure_pattern": "Fabricated numeric value not from tool output",
+  "eval_notes": "This case is interesting because the hallucination is subtle — the US area figure (9,161,928 km²) is actually close to the real value (~9,833,517 km²), making it plausible enough to pass casual inspection. The medium confidence label is appropriate given the value's approximate correctness, which distinguishes this from obvious fabrication cases."
 }

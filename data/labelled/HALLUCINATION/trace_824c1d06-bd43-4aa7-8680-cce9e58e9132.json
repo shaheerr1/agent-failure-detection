@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:58:27.702622",
+  "key_evidence": "Steps 3-5 return only summary descriptions of Wikipedia pages without any specific GDP figures. The Final Answer states \"The GDP of Indonesia is $1.4 trillion and the GDP of the Netherlands is $1.1 trillion\" — these specific dollar figures never appear in any tool observation, making them fabricated.",
+  "failure_pattern": "Fabricated statistics not present in tool outputs",
+  "eval_notes": "This is a relatively clear-cut hallucination case because the tool outputs are visibly truncated summaries that contain no numerical GDP data, yet the agent produces precise figures with confidence. What makes it slightly interesting is that the values cited ($1.4T and $1.1T) are approximately plausible for these countries, suggesting the model drew on parametric knowledge rather than purely inventing numbers — a subtle form of hallucination that could be mistaken for correct retrieval."
 }

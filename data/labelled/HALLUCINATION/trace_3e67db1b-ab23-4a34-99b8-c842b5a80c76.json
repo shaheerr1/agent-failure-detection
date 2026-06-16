@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:51:25.610397",
+  "key_evidence": "None of the three Wikipedia tool outputs contain any information about Thomas Edison, patent years, or countries of origin — the observations returned pages about the Centennial Light bulb and general incandescent bulb information. The final answer fabricates specific facts (\"patented it in 1879,\" \"bamboo filament,\" Edison's role) that are entirely absent from the retrieved content.",
+  "failure_pattern": "Fabricated answer unsupported by tool outputs",
+  "eval_notes": "This is a relatively clean hallucination case — the agent failed to retrieve relevant information through repeated tool calls yet confidently produced a detailed, specific answer as if it had. The trace is interesting because the final answer contains plausible real-world facts (Edison did patent a bulb around 1879), making it hard to detect without checking against the actual tool outputs, which is a key distinguishing feature of high-confidence hallucinations versus confabulation from partial evidence."
 }

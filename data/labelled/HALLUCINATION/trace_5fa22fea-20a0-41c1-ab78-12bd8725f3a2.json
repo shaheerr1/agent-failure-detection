@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.9,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:55:10.163515",
+  "key_evidence": "The Wikipedia summary in Step 5 states Kelvin Kiptum \"held the marathon world record between 2023 and 2026\" but provides no specific time or date. The Final Answer states a time of \"2:35:42\" and date of \"October 8, 2023, at the Chicago Marathon\" — neither of which appears anywhere in the tool outputs.",
+  "failure_pattern": "Fabricated specific details not present in tool outputs",
+  "eval_notes": "This case is interesting because the agent correctly identifies the record holder (Kelvin Kiptum) from the retrieved content, making it a partial success, but then fabricates precise details (time and date) that were never returned by any tool — the actual world record time is 2:00:35, making the hallucinated time wildly incorrect and easy to verify. This distinguishes it from cases where hallucinated details are plausible or hard to check."
 }

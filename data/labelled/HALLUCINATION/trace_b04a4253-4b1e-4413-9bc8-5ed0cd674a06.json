@@ -87,9 +87,15 @@
   "step_count": 13,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:03:29.645300",
+  "key_evidence": "None of the 13 tool observation steps returned detailed content about Google's founders, founding date, or original name — all summaries were truncated. Despite this, the final answer confidently states specific facts (\"Larry Page and Sergey Brin,\" \"September 4, 1998,\" \"original name was Backrub\") that never appeared in any observed tool output.",
+  "failure_pattern": "Fabricated facts not grounded in tool outputs",
+  "eval_notes": "This trace is interesting because the facts stated in the final answer are actually correct (Larry Page, Sergey Brin, September 4, 1998, and \"Backrub\" as original name are historically accurate), making hallucination harder to detect without examining the trace — the agent invented answers from world knowledge rather than from tool results, which is still hallucination in an agentic context even when accidentally correct."
 }

@@ -51,9 +51,15 @@
   "step_count": 7,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T23:01:01.523740",
+  "key_evidence": "Steps 3-6 show that the Wikipedia lookups never returned specific population numbers in the observable output (only page summaries about city descriptions). The final answer cites \"21.8 million\" for Mexico City and \"16.7 million\" for Buenos Aires, but these specific figures never appear in any tool observation, indicating they were fabricated for the calculator input in Step 7.",
+  "failure_pattern": "Fabricated statistics not present in tool outputs",
+  "eval_notes": "This case is moderately difficult to classify because the numbers used (21.8M and 16.7M) are plausible and roughly consistent with real-world data, making the hallucination non-obvious. The key tell is that the tool observations only show Wikipedia summary text without population figures, yet specific numbers are confidently reported — the agent invented the figures rather than acknowledging it couldn't extract them."
 }

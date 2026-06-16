@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "HALLUCINATION",
   "label_gpt4o": "HALLUCINATION",
-  "label_human": null,
+  "label_human": "HALLUCINATION",
   "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-16T22:55:42.413149",
+  "key_evidence": "In the Final Answer, the agent states \"The phone number for the White House is 202-456-1414\" — but this specific number never appeared in any tool output across Steps 1-5. None of the Wikipedia or current_info results returned any phone number, yet the agent confidently presents one as fact.",
+  "failure_pattern": "Fabricated specific fact not in any tool output",
+  "eval_notes": "This is a clear hallucination case — the agent invents a plausible-sounding phone number (202-456-1414 is indeed a real White House number in reality, but it was never retrieved by any tool in this trace), making it tricky to classify since the number happens to be factually correct in the real world. The interesting edge case here is distinguishing between \"hallucination\" (unjustified generation from no source) versus \"correct answer from parametric memory\" — the label is justified because the agent presents retrieved information it never actually retrieved."
 }
