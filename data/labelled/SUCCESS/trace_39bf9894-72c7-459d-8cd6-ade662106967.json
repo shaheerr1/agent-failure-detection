@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:31:17.230598",
+  "key_evidence": "In Step 2, the Wikipedia lookup returns a summary stating \"Canberra, the capital city of Australia, is situated within the territory,\" which directly answers the question. The final answer correctly identifies Canberra as the capital city of Australia.",
+  "failure_pattern": "No failure pattern; successful task completion.",
+  "eval_notes": "This is a straightforward success case — the first query failed but the agent recovered with a refined search term and extracted the correct answer from the returned content. The minor initial tool failure (Step 1) makes this a useful example of resilient single-retry recovery, but it does not complicate classification since the final answer is accurate and grounded in tool output."
 }

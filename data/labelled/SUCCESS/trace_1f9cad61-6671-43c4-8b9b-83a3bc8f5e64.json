@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:23:47.258437",
+  "key_evidence": "In Step 1, the Wikipedia tool explicitly returned \"No Wikipedia article found,\" providing no factual grounding. In Step 2, the calculator was used with the input '100' — essentially asserting the answer rather than deriving it — and the final answer treats this as confirmed evidence.",
+  "failure_pattern": "Answer asserted as tool output without factual retrieval",
+  "eval_notes": "This is an interesting edge case because the final answer (100°C) is actually correct by real-world standards, making it a \"lucky hallucination\" — the agent fabricated a retrieval path to a true fact. This makes it harder to classify purely on answer accuracy and highlights the importance of evaluating the reasoning process rather than just the output."
 }

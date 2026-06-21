@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:36:04.726585",
+  "key_evidence": "Step 1 shows the calculator tool was called with the correct expression '347 * 23' and returned 7981. The final answer accurately reports this result without any modification or fabrication.",
+  "failure_pattern": "No failure pattern observed; correct tool use.",
+  "eval_notes": "This is a straightforward success case with a single tool call and direct answer — easy to classify with no ambiguity. It serves as a clean positive example for distinguishing successful arithmetic tool use from cases where agents might hallucinate results or misreport tool outputs."
 }

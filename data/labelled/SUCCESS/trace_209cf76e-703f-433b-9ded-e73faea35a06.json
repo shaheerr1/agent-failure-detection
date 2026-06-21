@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:25:33.731954",
+  "key_evidence": "Steps 1 and 2 successfully retrieved that Facebook was founded in 2004 by Mark Zuckerberg, and the final answer correctly reports these facts. Step 3 explicitly states real-time data is unavailable, and the final answer honestly acknowledges the monthly active users figure could not be found.",
+  "failure_pattern": "Partial task completion with honest gap acknowledgment",
+  "eval_notes": "This is a borderline case — the agent completed 2 of 3 subtasks correctly and transparently admitted failure on the third, which is why the reviewer labeled it SUCCESS with only MEDIUM confidence. The interesting challenge for classifiers is distinguishing between \"partial success with honest reporting\" (arguably acceptable) versus a true failure to complete all required task components."
 }

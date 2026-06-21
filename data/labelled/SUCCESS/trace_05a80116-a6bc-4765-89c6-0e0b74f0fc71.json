@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:13:03.545716",
+  "key_evidence": "Step 1 shows the calculator tool correctly evaluated '400 * 1.25' and returned 500.0. The final answer accurately reports this result as 500, matching the tool output exactly.",
+  "failure_pattern": "No failure pattern; straightforward successful execution.",
+  "eval_notes": "This is an extremely simple, unambiguous success case — single tool call, correct computation, accurate answer reporting. It serves as a clear negative example for failure classification, with no edge cases or ambiguity that could complicate labeling."
 }

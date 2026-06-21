@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:41:52.913710",
+  "key_evidence": "Step 1's Wikipedia observation was truncated and never provided the actual area figure of 14,200,000 km². Step 2 also failed to return a clear world land area figure, yet the agent used specific numbers (14,200,000 and 148,940,000) in Step 3 without any tool output confirming them.",
+  "failure_pattern": "Fabricated numerical values not found in tool outputs",
+  "eval_notes": "This is a medium-confidence case because the numbers used (14.2M km² for Antarctica, 148.94M km² for world land area) are actually factually accurate figures, making the hallucination hard to detect without carefully checking that the tool outputs never contained these values. The failure is procedural hallucination — the agent invented inputs for the calculator from memory rather than extracting them from tool responses — but the final answer happens to be numerically correct, which complicates classification."
 }

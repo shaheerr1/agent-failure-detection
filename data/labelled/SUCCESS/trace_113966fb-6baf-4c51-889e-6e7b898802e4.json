@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.92,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:17:35.302857",
+  "key_evidence": "The Wikipedia tool outputs in Steps 2 and 3 are truncated and never explicitly mention Romeo and Juliet's composition date or list specific plays like Hamlet, Macbeth, or Othello. The Final Answer states \"it is believed to have been written around 1595-1596\" and lists specific notable plays (Hamlet, Macbeth, Othello, King Lear, A Midsummer Night's Dream) that do not appear anywhere in the observed tool outputs.",
+  "failure_pattern": "Fabricated details not present in tool outputs",
+  "eval_notes": "This is a medium-confidence hallucination case because the fabricated information (date range 1595-1596 and the list of specific plays) is factually accurate by general knowledge, making it hard to flag without carefully checking against tool outputs. The agent appears to have supplemented incomplete/truncated tool responses with pre-trained knowledge rather than performing additional lookups, blurring the line between hallucination and legitimate knowledge inference."
 }

@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:29:16.668078",
+  "key_evidence": "Step 2's Wikipedia observation only mentions Rishi Sunak serving as PM \"from 2022 to 2024\" and references Keir Starmer's Labour Party winning the 2024 election, but never states Starmer's exact office start date. The final answer states \"July 5, 2024\" as Starmer's inauguration date — a specific date not present anywhere in the tool outputs.",
+  "failure_pattern": "Fabricated specific date not in tool output",
+  "eval_notes": "This is a medium-confidence hallucination case because the agent correctly inferred Starmer became PM (a reasonable inference from the snippet mentioning Labour's election victory), making the answer partially correct — but the specific date \"July 5, 2024\" was fabricated from the model's parametric knowledge rather than retrieved evidence, which is the hallucination. This makes it somewhat ambiguous whether to classify as hallucination or as valid use of background knowledge, which likely explains the medium confidence rating."
 }

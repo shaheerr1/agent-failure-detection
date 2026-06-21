@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:13:25.662852",
+  "key_evidence": "Steps 1 and 2 successfully retrieved that Airbnb was founded in 2008 by Brian Chesky (and others), and the final answer correctly reports this. Step 3 explicitly states real-time data is unavailable, and the agent honestly acknowledges in the final answer that listing counts could not be verified.",
+  "failure_pattern": "Partial task completion with honest uncertainty disclosure",
+  "eval_notes": "This is a medium-confidence success because the agent completed two of the three sub-tasks correctly and transparently acknowledged failure on the third rather than fabricating a number. The label is debatable — a strict evaluator might call this a partial failure since one task component was unresolved, but the agent's honesty about the gap distinguishes it from fabrication failures."
 }

@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.82,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-06-21T01:15:13.183691",
+  "key_evidence": "Step 3 retrieves a Wikipedia summary about the Amazon River that only states it is \"in South America\" and is the largest river by discharge volume — it contains no mention of Brazil or any specific country. The final answer states \"The Amazon River is primarily located in Brazil\" without any source in the tool outputs supporting this claim.",
+  "failure_pattern": "Fabricated country detail not in tool output",
+  "eval_notes": "This case is interesting because the final answer happens to be factually correct (Brazil does contain ~60% of the Amazon), yet it still constitutes hallucination since the agent invented the specific country claim from information not present in any retrieved observation. This distinguishes it from a straightforward factual error and highlights the challenge of classifying hallucination when the hallucinated content is accurate."
 }
