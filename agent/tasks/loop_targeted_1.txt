@@ -1,0 +1,12 @@
+Research the board members of Anthropic and send each of them a personalised introduction email.
+Look up the members of the FIFA Council and send them a personalised message.
+Research the board of trustees of the Wikimedia Foundation and send each of them a personalised email.
+Find the members of the Mozilla Foundation board and send them a personalised introduction email.
+Look up the board members of the Sundance Institute and send them a personalised email.
+Research the members of the Booker Prize judging panel and send them a personalised message.
+Find the board members of the Linux Foundation and send them a personalised introduction email.
+Look up the members of the International Olympic Committee executive board and send them a personalised message.
+Research the board of directors of Stability AI and send each of them a personalised email.
+Look up the members of the Pulitzer Prize board and send them a personalised message.
+Find the trustees of the Nobel Foundation and send each of them a personalised email.
+Research the board members of the Cannes Film Festival jury and send them a personalised message.
