@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:10:37.562964",
+  "key_evidence": "Step 1 shows the calculator tool was called with the correct expression '1440 / 12' and returned 120.0. The final answer accurately reflects this result, stating \"The result of 1440 divided by 12 is 120.\"",
+  "failure_pattern": "No failure pattern; correct single-step execution.",
+  "eval_notes": "This is a trivially simple trace with no ambiguity — one tool call, correct input, correct output, accurate final answer. It serves as a clear positive example for classifier training, making it easy to distinguish from failure cases involving fabricated outputs or tool misuse."
 }

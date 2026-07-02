@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T16:57:12.709862",
+  "key_evidence": "Steps 1-3 return incomplete or failed Wikipedia lookups, with Step 2 returning only a partial summary about \"gravitationally rounded objects\" that never explicitly states the number of planets. The final answer states \"8 planets\" but no tool output in the trace contains or confirms this specific number.",
+  "failure_pattern": "Fabricated answer not grounded in tool outputs",
+  "eval_notes": "This case is interesting because the answer \"8 planets\" is factually correct in reality, making it a \"true hallucination\" — the agent invented a number not present in any retrieved content rather than deriving it from evidence. This distinguishes it from cases where correct answers are properly sourced, and highlights why factual accuracy alone cannot determine whether hallucination occurred; the reasoning process and grounding matter independently of outcome correctness."
 }

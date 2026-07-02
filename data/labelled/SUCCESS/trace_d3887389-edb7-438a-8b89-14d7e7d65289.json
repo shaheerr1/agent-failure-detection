@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.72,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:20:11.511117",
+  "key_evidence": "The tool outputs never mention Thomas Newcomen, James Watt, or the year 1712, yet the Final Answer confidently states \"the first practical version of the steam engine was built by Thomas Newcomen in 1712\" and attributes improvements to \"James Watt...in 1781.\" The Step 2 observation only mentions the aeolipile and Heron of Alexandria, providing no basis for these specific claims.",
+  "failure_pattern": "Fabricated specific facts not present in tool outputs",
+  "eval_notes": "This case is relatively easy to classify because the specific names (Newcomen, Watt), dates (1712, 1781), and details are entirely absent from all three tool observations, making the hallucination clear-cut. Interestingly, the hallucinated facts are historically accurate, which makes this a case of \"correct hallucination\" — the agent arrived at true information through fabrication rather than evidence, which could complicate evaluation for classifiers that check factual accuracy rather than grounding."
 }

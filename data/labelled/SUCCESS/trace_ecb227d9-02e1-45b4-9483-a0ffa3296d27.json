@@ -33,9 +33,15 @@
   "step_count": 4,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:26:48.320582",
+  "key_evidence": "Step 4 returns a Wikipedia summary about Ray Tomlinson that does not mention his employer (Bolt Beranek and Newman/BBN). The Final Answer states \"He was working for Bolt Beranek and Newman (BBN) at the time\" — information that appears nowhere in any of the tool outputs shown in the trace.",
+  "failure_pattern": "Fabricated organizational detail not in tool output",
+  "eval_notes": "This case is interesting because the core answer (Ray Tomlinson, 1971) is factually correct and supported by Step 4, but the specific organizational detail (BBN) is injected without any tool evidence, making it a partial hallucination. This is a medium-confidence case because BBN is actually the correct real-world answer, making it hard to detect without knowing the tool outputs were insufficient to justify the claim."
 }

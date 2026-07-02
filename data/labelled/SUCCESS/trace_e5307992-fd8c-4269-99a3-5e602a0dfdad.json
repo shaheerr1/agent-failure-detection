@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "MEDIUM",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:25:08.733512",
+  "key_evidence": "Step 2's observation only mentions Following (1998) and hints at one more film before truncating (\"Two years later, he directed the psychological...\"), yet the Final Answer lists a full filmography including Memento (2000), Insomnia (2002), The Dark Knight (2008), Interstellar (2014), Dunkirk (2017), and Tenet (2020) — none of which appear in the retrieved tool outputs. The agent fabricated these specific films and dates without grounding them in any observed tool response.",
+  "failure_pattern": "Fabricated filmography details not present in tool outputs",
+  "eval_notes": "This case is moderately ambiguous for classification because the hallucinated information is factually correct in the real world, making it easy to overlook as an error — the failure is about ungrounded generation, not factual inaccuracy. This distinguishes it from cases where the agent both fabricates and gets facts wrong, and highlights why \"factually correct hallucination\" is a subtle but real failure pattern in tool-augmented agents."
 }

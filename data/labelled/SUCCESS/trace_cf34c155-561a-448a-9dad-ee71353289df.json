@@ -27,9 +27,15 @@
   "step_count": 3,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:17:39.729721",
+  "key_evidence": "Steps 1 and 2 correctly retrieved heights of 5,895 m and 4,807.3 m respectively from Wikipedia. Step 3 used the calculator to compute 5895 - 4807.3 = 1087.7, which is accurately reflected in the final answer.",
+  "failure_pattern": "No failure pattern observed; clean successful execution.",
+  "eval_notes": "This is a straightforward success trace with no ambiguity — each tool call returns relevant data, the calculation is correct, and the final answer accurately synthesizes the results. Easy to classify as success; useful as a positive baseline example in the dataset."
 }

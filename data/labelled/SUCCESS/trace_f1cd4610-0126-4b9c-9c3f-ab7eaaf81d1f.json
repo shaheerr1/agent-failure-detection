@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.95,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:27:43.620872",
+  "key_evidence": "Step 2 retrieves a Wikipedia summary about Michelangelo that is truncated and does not explicitly mention the Sistine Chapel ceiling. The final answer states \"The Sistine Chapel ceiling was painted by Michelangelo\" as a confirmed fact, but this specific claim does not appear in any tool output.",
+  "failure_pattern": "Correct answer asserted beyond what tool output confirms",
+  "eval_notes": "This is a genuinely tricky case for classification: the answer is factually correct (Michelangelo did paint the Sistine Chapel ceiling), but the agent's tool outputs never actually confirmed this connection — making it technically a hallucination by inference beyond evidence. This distinguishes it from a \"fabricated fact\" hallucination and highlights the edge case where factual correctness and hallucination can coexist, potentially causing disagreement among human annotators."
 }

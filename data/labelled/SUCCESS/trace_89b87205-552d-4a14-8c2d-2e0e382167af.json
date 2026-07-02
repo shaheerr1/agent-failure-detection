@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T16:59:26.635906",
+  "key_evidence": "Step 1's Wikipedia tool output only returns a generic summary about a list of rivers, with no specific data about which river is longest or its length. The Final Answer states \"The longest river in the world is the Nile River, approximately 6,650 kilometers\" — specific facts not present anywhere in the observed tool output.",
+  "failure_pattern": "Fabricated specific facts not found in tool output",
+  "eval_notes": "This case is slightly nuanced because the Nile answer is historically commonly accepted (though the Amazon is contested as potentially longer), making the hallucination partially plausible. However, the agent clearly invented the specific figure and conclusion without retrieving supporting evidence, making it a clear hallucination. The ambiguity around Nile vs. Amazon adds an interesting dimension for classifier evaluation of factual confidence."
 }

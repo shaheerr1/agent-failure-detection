@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:23:55.079878",
+  "key_evidence": "Step 2 returns only a truncated Wikipedia summary that does not include any specific date or year for the start of World War I. The final answer states \"The First World War began in 1914\" despite no year being present in the observed tool output.",
+  "failure_pattern": "Correct fact stated without grounding in tool output.",
+  "eval_notes": "This is an interesting edge case for hallucination classification because the answer (1914) is factually correct, yet it cannot be attributed to the tool outputs provided in the trace — making it a hallucination by process even if not by result. This distinguishes it from harmful hallucinations and may challenge classifiers that conflate factual accuracy with proper grounding."
 }

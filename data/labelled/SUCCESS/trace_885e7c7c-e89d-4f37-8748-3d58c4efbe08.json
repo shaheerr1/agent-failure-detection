@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T16:58:40.559398",
+  "key_evidence": "Step 1 shows the calculator tool correctly evaluated '892 / 4' and returned 223.0. The final answer accurately reflects this result, stating \"The result of 892 divided by 4 is 223.\"",
+  "failure_pattern": "No failure pattern; correct single-step execution.",
+  "eval_notes": "This is a straightforward success case with minimal complexity — one tool call, one correct result, one accurate final answer. It serves as a clean positive example for classifiers, with no ambiguity or edge cases to complicate labeling."
 }

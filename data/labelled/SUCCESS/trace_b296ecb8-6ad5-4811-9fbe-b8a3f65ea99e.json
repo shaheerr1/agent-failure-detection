@@ -39,9 +39,15 @@
   "step_count": 5,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:12:46.294207",
+  "key_evidence": "",
+  "failure_pattern": "",
+  "eval_notes": ""
 }

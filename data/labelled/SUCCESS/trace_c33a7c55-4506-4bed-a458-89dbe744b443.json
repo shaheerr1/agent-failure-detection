@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:14:12.805863",
+  "key_evidence": "Step 1 shows the calculator tool correctly evaluated '0.3 * 750' and returned 225.0. The final answer directly and accurately reports this result as 225.",
+  "failure_pattern": "No failure pattern; correct single-step execution.",
+  "eval_notes": "This is a trivially simple trace with no ambiguity — a single tool call produces the correct result and the agent reports it accurately. It serves as a clear positive example for classifier training, with no edge cases or failure modes to distinguish from."
 }

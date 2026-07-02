@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.85,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:26:15.142481",
+  "key_evidence": "Step 2's Wikipedia observation only returned a truncated summary about \"gravitationally rounded objects\" with no specific mention of Jupiter or planetary sizes. The final answer states \"The largest planet in our solar system is Jupiter\" without this fact appearing anywhere in the tool outputs.",
+  "failure_pattern": "Correct answer stated without supporting tool output evidence",
+  "eval_notes": "This is an interesting edge case for classification because Jupiter actually is the correct answer, making this a \"lucky hallucination\" — the agent fabricated a confident answer not grounded in its retrieved context, yet happened to be factually accurate. This distinguishes it from typical hallucinations where the answer is also wrong, and may challenge classifiers that conflate factual incorrectness with hallucination."
 }

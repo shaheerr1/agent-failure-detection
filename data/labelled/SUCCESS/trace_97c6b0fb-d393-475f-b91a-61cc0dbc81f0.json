@@ -21,9 +21,15 @@
   "step_count": 2,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
+  "label_human": "SUCCESS",
   "final_label": "SUCCESS",
   "confidence_claude": 0.99,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:03:48.379897",
+  "key_evidence": "Step 2 returned a Wikipedia article stating \"The United Nations (UN) is a global intergovernmental organization established by the signing of the UN Charter on 26 June 1945,\" and the final answer correctly states \"The United Nations was founded in 1945.\"",
+  "failure_pattern": "No failure pattern; straightforward successful retrieval.",
+  "eval_notes": "This is a clean success trace with a minor recoverable hiccup in Step 1 (overly broad query failed), followed by a corrected query in Step 2 that retrieved the needed information. The trace is easy to classify as success because the final answer is directly supported by tool output with no hallucination or deviation."
 }

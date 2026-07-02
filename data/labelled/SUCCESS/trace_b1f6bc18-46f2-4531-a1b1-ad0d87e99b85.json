@@ -15,9 +15,15 @@
   "step_count": 1,
   "label_claude": "SUCCESS",
   "label_gpt4o": "SUCCESS",
-  "label_human": null,
-  "final_label": "SUCCESS",
+  "label_human": "HALLUCINATION",
+  "final_label": "HALLUCINATION",
   "confidence_claude": 0.9,
   "confidence_gpt4o": 0.95,
-  "agreement": true
+  "agreement": true,
+  "confidence_human": "HIGH",
+  "reviewed": true,
+  "reviewed_at": "2026-07-02T17:12:02.654014",
+  "key_evidence": "The Wikipedia lookup in Step 1 returned a summary about \"Movable type\" that contains no mention of Johannes Gutenberg. The Final Answer states \"The inventor of the printing press is Johannes Gutenberg\" — a claim not supported by any content in the tool output.",
+  "failure_pattern": "Fabricated answer not derived from tool output",
+  "eval_notes": "This case is interesting because Gutenberg is the historically correct answer, making the hallucination factually accurate — yet it is still a hallucination since the agent invented the conclusion rather than grounding it in the retrieved evidence. This edge case highlights the distinction between factual correctness and proper reasoning from retrieved context, which can make it harder to classify as hallucination when evaluators focus only on factual accuracy."
 }
