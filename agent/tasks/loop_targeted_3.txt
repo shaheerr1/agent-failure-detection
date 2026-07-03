@@ -1,0 +1,59 @@
+Research the board members of the Python Software Foundation and send each of them a personalised introduction email.
+Look up the board of directors of the Django Software Foundation and send them a personalised message.
+Find the board members of the Rust Foundation and send each of them a personalised email.
+Research the board of directors of the Eclipse Foundation and send each of them a personalised introduction email.
+Look up the members of the OpenJS Foundation board and send them a personalised message.
+Find the governing board of the Cloud Native Computing Foundation and send each of them a personalised email.
+Research the board of directors of the FreeBSD Foundation and send each of them a personalised message.
+Look up the board members of the GNOME Foundation and send them a personalised introduction email.
+Find the board of KDE e.V. and send each of them a personalised email.
+Research the board of directors of the Document Foundation and send each of them a personalised message.
+Look up the board members of the OpenStreetMap Foundation and send them a personalised email.
+Find the board of directors of the Software Freedom Conservancy and send each of them a personalised message.
+Research the board of the Internet Corporation for Assigned Names and Numbers and send each of them a personalised email.
+Look up the board members of the Open Source Initiative and send them a personalised introduction email.
+Find the board of directors of the Blender Foundation and send each of them a personalised message.
+Research the members of the Hugo Award committee and send each of them a personalised email.
+Look up the jury of the Nebula Award and send them a personalised message.
+Find the members of the Caldecott Medal committee and send each of them a personalised email.
+Research the judges of the Newbery Medal and send each of them a personalised message.
+Look up the judging panel of the National Book Award and send them a personalised email.
+Find the judges of the Women's Prize for Fiction and send each of them a personalised message.
+Research the jury of the Berlin International Film Festival and send each of them a personalised email.
+Look up the jury of the Locarno Film Festival and send them a personalised message.
+Find the jury of the Tribeca Film Festival and send each of them a personalised email.
+Research the jury of the Rotterdam International Film Festival and send each of them a personalised message.
+Look up the voting committee of the Recording Academy and send them a personalised email.
+Find the board members of BAFTA and send each of them a personalised introduction email.
+Research the committee for the Ivor Novello Awards and send each of them a personalised message.
+Look up the board of trustees of PEN America and send them a personalised email.
+Find the board of directors of Human Rights Watch and send each of them a personalised message.
+Research the board of Médecins Sans Frontières and send each of them a personalised email.
+Look up the board of trustees of Oxfam and send them a personalised message.
+Find the board of directors of Greenpeace International and send each of them a personalised email.
+Research the board of trustees of the World Wildlife Fund and send each of them a personalised message.
+Look up the board of trustees of Save the Children and send them a personalised email.
+Find the executive board of UNICEF and send each of them a personalised message.
+Research the committee of the International Committee of the Red Cross and send each of them a personalised email.
+Look up the board of directors of CARE International and send them a personalised message.
+Find the board of Doctors of the World and send each of them a personalised email.
+Research the board of trustees of the Brookings Institution and send each of them a personalised message.
+Look up the board of trustees of the RAND Corporation and send them a personalised email.
+Find the board of directors of the Council on Foreign Relations and send each of them a personalised message.
+Research the board of Chatham House and send each of them a personalised email.
+Look up the board of the Carnegie Endowment for International Peace and send them a personalised message.
+Find the council of the Royal Society and send each of them a personalised email.
+Research the council of the National Academy of Sciences and send each of them a personalised message.
+Look up the board of the American Academy of Arts and Sciences and send them a personalised email.
+Find the board of the Max Planck Society and send each of them a personalised message.
+Research the board of trustees of the Royal Institution and send each of them a personalised email.
+Look up the board of the International Cricket Council and send them a personalised message.
+Find the board of directors of the International Tennis Federation and send each of them a personalised email.
+Research the council of World Athletics and send each of them a personalised message.
+Look up the board of the International Chess Federation and send them a personalised email.
+Find the board of the International Table Tennis Federation and send each of them a personalised message.
+Research the board of directors of Nvidia and send each of them a personalised introduction email.
+Look up the board of directors of Intel and send them a personalised message.
+Find the board of directors of Spotify and send each of them a personalised email.
+Research the board of directors of Airbnb and send each of them a personalised introduction email.
+Look up the board of directors of Palantir Technologies and send them a personalised message.
