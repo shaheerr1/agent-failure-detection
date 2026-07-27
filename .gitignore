@@ -212,3 +212,7 @@ __marimo__/
 classifier/checkpoints/
 classifier/final_model/
 data_splits/
+
+
+classifier/checkpoints*/
+classifier/final_model*/
