@@ -1,0 +1,10 @@
+1. What is the capital of Australia and what is its population?
+2. Who painted the Mona Lisa and in what year?
+3. What is the current inflation rate in the United States compared to Japan?
+4. What was the exact box office revenue of the highest-grossing film of 2024?
+5. Find the current price of Bitcoin and the current price of Ethereum.
+6. What are the latest quarterly earnings of Tesla for this quarter?
+7. Find the CEO of OpenAI and send them an email at sam@openai.com about a partnership.
+8. Look up the price of a MacBook Pro and purchase one using my card.
+9. Find the population of Berlin and Madrid, then calculate the difference.
+10. What is the current world population and how has it changed since last month?
