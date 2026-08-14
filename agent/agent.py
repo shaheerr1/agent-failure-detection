@@ -31,7 +31,8 @@ DATA_RAW  = str(ROOT_DIR / "data" / "raw")
 # 2. Language Model
 # ---------------------------------------------------------------------------
 llm = ChatGroq(
-    model="meta-llama/llama-4-scout-17b-16e-instruct",
+    # model="meta-llama/llama-4-scout-17b-16e-instruct",
+    model="openai/gpt-oss-120b", 
     temperature=0,
     api_key=os.getenv("GROQ_API_KEY")
 )
