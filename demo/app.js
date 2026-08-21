@@ -42,6 +42,30 @@
   function pct(x, dp) { return (x * 100).toFixed(dp == null ? 0 : dp) + "%"; }
   function f3(x) { return x == null ? "—" : x.toFixed(3); }
 
+  /* ── hover layer ───────────────────────────────────────────────────────────
+     An HTML chart is interactive by default: every mark carries a tooltip.
+     One shared floating element, positioned from pointer coordinates, rather
+     than a per-mark title attribute (which is slow to appear and unstyleable). */
+  function useTooltip() {
+    var [tip, setTip] = useState(null);
+    var show = function (e, content) {
+      setTip({ x: e.clientX, y: e.clientY, content: content });
+    };
+    var hide = function () { setTip(null); };
+    var node = tip ? h("div", {
+      style: {
+        position: "fixed", left: 0, top: 0,
+        transform: "translate(" + (tip.x + 14) + "px," + (tip.y - 12) + "px)",
+        background: "var(--surface-1)", color: "var(--text-1)",
+        border: "1px solid var(--border-str)", borderRadius: "6px",
+        padding: "7px 10px", fontSize: "12.5px", lineHeight: 1.45,
+        boxShadow: "0 6px 20px rgba(0,0,0,.18)", pointerEvents: "none",
+        zIndex: 999, maxWidth: "260px", whiteSpace: "nowrap"
+      }
+    }, tip.content) : null;
+    return { show: show, hide: hide, node: node };
+  }
+
   /* ── small pieces ──────────────────────────────────────────────────────── */
   function Swatch(p) {
     return h("span", { className: "swatch", style: { background: p.color } });
@@ -68,13 +92,22 @@
     var max = p.max != null ? p.max : Math.max.apply(null, p.rows.map(function (r) { return r.value; }));
     var fmt = p.format || function (v) { return String(v); };
     var labelW = p.labelWidth || 132;
+    var tt = useTooltip();
     return h("div", null,
+      tt.node,
       p.rows.map(function (r, i) {
         var w = max > 0 ? (r.value / max) * 100 : 0;
         return h("div", {
           key: r.name + i,
+          onMouseMove: function (e) {
+            tt.show(e, h("span", null,
+              h("strong", null, r.name), " — ", fmt(r.value),
+              r.note ? h("span", { style: { color: "var(--text-3)" } }, "  ·  " + r.note) : null));
+          },
+          onMouseLeave: tt.hide,
           style: { display: "grid", gridTemplateColumns: labelW + "px 1fr auto",
-                   alignItems: "center", gap: "12px", marginBottom: "9px" }
+                   alignItems: "center", gap: "12px", marginBottom: "9px",
+                   cursor: "default", borderRadius: "5px" }
         },
           h("div", { style: { fontSize: "12.5px", color: "var(--text-2)",
                               whiteSpace: "nowrap", overflow: "hidden",
@@ -173,9 +206,19 @@
     var sorted = ORDER.slice().sort(function (a, b) { return (probs[b] || 0) - (probs[a] || 0); });
     var top = sorted[0];
     return h("div", null,
+      p.tt ? p.tt.node : null,
       sorted.map(function (cls, i) {
         var v = probs[cls] || 0;
-        return h("div", { key: cls, className: "probrow" + (i === 0 ? " top" : "") },
+        return h("div", {
+          key: cls, className: "probrow" + (i === 0 ? " top" : ""),
+          onMouseMove: p.tt ? function (e) {
+            p.tt.show(e, h("span", null,
+              h("strong", null, labelOf(cls)), " — ", v.toFixed(3),
+              h("span", { style: { color: "var(--text-3)" } },
+                "  ·  " + Math.round(v * 100) + "% of the mass")));
+          } : null,
+          onMouseLeave: p.tt ? p.tt.hide : null
+        },
           h("div", { className: "nm" }, h(Swatch, { color: colorOf(cls) }), labelOf(cls)),
           h("div", { className: "track" },
             h("div", { className: "fill",
@@ -224,6 +267,7 @@
     var [playing, setPlaying] = useState(false);
     var timer = useRef(null);
     var curRef = useRef(null);
+    var probTip = useTooltip();
 
     var tr = traces[idx];
     var nSteps = tr ? tr.steps.length : 0;
@@ -337,13 +381,14 @@
                                   letterSpacing: ".06em", color: "var(--text-3)",
                                   fontWeight: 600, marginBottom: "12px" } },
                 "Classifier output after step " + step),
-              h(ProbPanel, { step: cur, trueLabel: tr.label })),
+              h(ProbPanel, { step: cur, trueLabel: tr.label, tt: probTip })),
             h("div", { className: "note" },
               "The final answer is removed from every partial input: during genuine runtime the agent has not yet answered, so a partial trace must not contain one.")))));
   }
 
   /* ── panel 3: results ──────────────────────────────────────────────────── */
   function ConfusionMatrix() {
+    var tt = useTooltip();
     var off = D.offline;
     var order = off.confusionOrder, M = off.confusion;
     var max = 0;
@@ -360,6 +405,7 @@
     }
 
     return h("div", null,
+      tt.node,
       h("div", { style: { overflowX: "auto" } },
         h("table", { style: { borderCollapse: "separate", borderSpacing: "2px",
                               fontVariantNumeric: "tabular-nums" } },
@@ -380,11 +426,21 @@
                   h(Swatch, { color: colorOf(rc) }), labelOf(rc)),
                 order.map(function (cc, ci) {
                   var v = M[ri][ci], st = cell(v);
+                  var rowTotal = M[ri].reduce(function (a, b) { return a + b; }, 0);
                   return h("td", {
                     key: cc,
-                    title: v + " " + labelOf(rc) + " predicted as " + labelOf(cc),
+                    onMouseMove: function (e) {
+                      tt.show(e, h("span", null,
+                        h("strong", null, v),
+                        ri === ci ? " correctly classified " : " misclassified ",
+                        h("strong", null, labelOf(rc)),
+                        ri === ci ? null : h("span", null, " as ", h("strong", null, labelOf(cc))),
+                        h("span", { style: { color: "var(--text-3)" } },
+                          "  ·  " + (rowTotal ? Math.round((v / rowTotal) * 100) : 0) + "% of true " + labelOf(rc))));
+                    },
+                    onMouseLeave: tt.hide,
                     style: { background: st.bg, color: st.fg, textAlign: "center",
-                             padding: "13px 0", borderRadius: "4px",
+                             padding: "13px 0", borderRadius: "4px", cursor: "default",
                              fontWeight: ri === ci ? 650 : 400, fontSize: "13px" }
                   }, v);
                 }));
