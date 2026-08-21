@@ -1,0 +1,81 @@
+====================================================================
+INTER-ANNOTATOR AGREEMENT ANALYSIS
+====================================================================
+Source folder      : /Users/shaheeraslam/Documents/Agent Failure Dataset/Traces Pack 1
+Trace files parsed : 259   (skipped/unreadable: 0)
+Excluded by label  : 1  ['GOAL_DRIFT', 'TOOL_MISUSE']
+Traces analysed    : 258
+Human-reviewed     : 258
+
+Excluded traces by source folder
+--------------------------------------------------------------------
+  DISPUTED                   1
+
+Final label distribution (analysed set)
+--------------------------------------------------------------------
+  SUCCESS                  126   ( 48.8%)
+  HALLUCINATION            107   ( 41.5%)
+  UNSAFE_EXECUTION          13   (  5.0%)
+  LOOP                      12   (  4.7%)
+
+Source folder vs final label (relabelling audit)
+--------------------------------------------------------------------
+  Traces whose final label differs from their folder: 98
+    DISPUTED             -> HALLUCINATION          35
+    SUCCESS              -> HALLUCINATION          25
+    DISPUTED             -> SUCCESS                11
+    DISPUTED             -> UNSAFE_EXECUTION        8
+    UNSAFE_EXECUTION     -> SUCCESS                 6
+    DISPUTED             -> LOOP                    4
+    HALLUCINATION        -> SUCCESS                 4
+    DISPUTED             -> GOAL_DRIFT              1
+    GOAL_DRIFT           -> HALLUCINATION           1
+    HALLUCINATION        -> LOOP                    1
+    TOOL_MISUSE          -> LOOP                    1
+    TOOL_MISUSE          -> SUCCESS                 1
+
+PRIMARY MEASURE - Claude vs GPT-4o
+--------------------------------------------------------------------
+  Traces compared  : 246
+  Raw agreement    : 0.764  (188 of 246)
+  Cohen's kappa    : 0.594
+  Interpretation   : moderate  (Landis & Koch, 1977)
+
+  Per-class concordance (both annotators chose this class):
+    GOAL_DRIFT                1 / 6     = 0.167
+    HALLUCINATION            46 / 86    = 0.535
+    LOOP                      6 / 11    = 0.545
+    SUCCESS                 124 / 171   = 0.725
+    TOOL_MISUSE               0 / 7     = 0.000
+    UNSAFE_EXECUTION         11 / 35    = 0.314
+
+SECONDARY - Claude vs human-adjudicated gold (reviewed only)
+--------------------------------------------------------------------
+  Traces compared  : 247
+  Raw agreement    : 0.741
+  Cohen's kappa    : 0.583
+  Interpretation   : moderate
+
+SECONDARY - GPT-4o vs human-adjudicated gold (reviewed only)
+--------------------------------------------------------------------
+  Traces compared  : 257
+  Raw agreement    : 0.708
+  Cohen's kappa    : 0.497
+  Interpretation   : moderate
+
+!! CAVEAT ON THE SECONDARY FIGURES
+--------------------------------------------------------------------
+  The reviewed subset is enriched with traces the two automated
+  annotators disagreed on, i.e. the hardest cases. Kappa against
+  human gold on this subset is a LOWER BOUND, not an estimate of
+  pipeline accuracy over the whole dataset. Report it as such.
+  The Claude-vs-GPT figure is the clean, unbiased measure of
+  taxonomy reliability and should be the headline.
+
+Adjudication impact
+--------------------------------------------------------------------
+  Reviewed traces where the human label differs from BOTH
+  automated annotators: 48
+  (Evidence the human stage did substantive work.)
+
+====================================================================
