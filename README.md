@@ -10,7 +10,7 @@ A DeBERTa-v3 classifier is fine tuned on 433 hand labelled ReAct agent traces ac
 | Best baseline | RoBERTa-base 0.756, TF-IDF + LR 0.664, frozen MiniLM + LR 0.464, majority 0.115 |
 | Caught before the agent finished | 78% of unsafe actions, 63% of loops, 32% of hallucinations |
 
-MSc Applied AI research, London South Bank University. Supervisor: Dr. Ali Salimian.
+MSc Applied AI research, London South Bank University.
 
 ---
 
