@@ -1,0 +1,38 @@
+# Runtime Detection of Failure Modes in LLM Agents
+#
+# Minimum versions known to work. For the exact environment behind the reported
+# numbers, regenerate a lockfile from a working venv:
+#
+#     pip freeze > requirements.lock.txt
+#
+# PyTorch: install the build that matches your CUDA version first, from
+# https://pytorch.org/get-started/locally/ , then run this file.
+# CPU-only and Apple Silicon both work; training falls back automatically.
+
+# --- classifier: training, evaluation, ablations -------------------------------
+torch>=2.6.0
+transformers>=4.44.0
+datasets>=2.20.0
+accelerate>=0.33.0
+sentencepiece>=0.2.0          # required by the DeBERTa-v3 tokenizer
+protobuf>=4.25.0
+scikit-learn>=1.5.0
+numpy>=1.26.0
+pandas>=2.2.0
+openpyxl>=3.1.0               # the splits are .xlsx
+sentence-transformers>=3.0.0  # diversity sampling in the dataset build
+
+# --- agent: trace generation ---------------------------------------------------
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-groq>=0.2.0
+langgraph>=0.2.0
+requests>=2.32.0
+python-dotenv>=1.0.0
+
+# --- annotation: dual-model labelling -----------------------------------------
+anthropic>=0.40.0
+openai>=1.50.0
+
+# --- figures -------------------------------------------------------------------
+matplotlib>=3.9.0
