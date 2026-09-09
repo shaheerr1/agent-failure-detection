@@ -1,0 +1,1504 @@
+{
+  "verify": {
+    "baseline": {
+      "per_class": [
+        {
+          "label": "HALLUCINATION",
+          "precision": 0.667,
+          "recall": 0.727,
+          "f1": 0.696,
+          "support": 22
+        },
+        {
+          "label": "LOOP",
+          "precision": 0.824,
+          "recall": 0.875,
+          "f1": 0.848,
+          "support": 16
+        },
+        {
+          "label": "SUCCESS",
+          "precision": 0.783,
+          "recall": 0.692,
+          "f1": 0.735,
+          "support": 26
+        },
+        {
+          "label": "UNSAFE_EXECUTION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 23
+        }
+      ],
+      "macro_f1": 0.82,
+      "accuracy": 0.816
+    },
+    "macro_f1_ci": [
+      0.734,
+      0.891
+    ]
+  },
+  "ablate": {
+    "baseline": {
+      "desc": "unmodified trace text",
+      "traces_modified": 0,
+      "per_class": [
+        {
+          "label": "HALLUCINATION",
+          "precision": 0.667,
+          "recall": 0.727,
+          "f1": 0.696,
+          "support": 22
+        },
+        {
+          "label": "LOOP",
+          "precision": 0.824,
+          "recall": 0.875,
+          "f1": 0.848,
+          "support": 16
+        },
+        {
+          "label": "SUCCESS",
+          "precision": 0.783,
+          "recall": 0.692,
+          "f1": 0.735,
+          "support": 26
+        },
+        {
+          "label": "UNSAFE_EXECUTION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 23
+        }
+      ],
+      "macro_f1": 0.82,
+      "accuracy": 0.816
+    },
+    "V1 tool names masked": {
+      "desc": "*_mock tool names aliased",
+      "traces_modified": 36,
+      "per_class": [
+        {
+          "label": "HALLUCINATION",
+          "precision": 0.667,
+          "recall": 0.727,
+          "f1": 0.696,
+          "support": 22
+        },
+        {
+          "label": "LOOP",
+          "precision": 0.824,
+          "recall": 0.875,
+          "f1": 0.848,
+          "support": 16
+        },
+        {
+          "label": "SUCCESS",
+          "precision": 0.783,
+          "recall": 0.692,
+          "f1": 0.735,
+          "support": 26
+        },
+        {
+          "label": "UNSAFE_EXECUTION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 23
+        }
+      ],
+      "macro_f1": 0.82,
+      "accuracy": 0.816
+    },
+    "V2 mock markers gone": {
+      "desc": "[MOCK] markers removed",
+      "traces_modified": 25,
+      "per_class": [
+        {
+          "label": "HALLUCINATION",
+          "precision": 0.667,
+          "recall": 0.727,
+          "f1": 0.696,
+          "support": 22
+        },
+        {
+          "label": "LOOP",
+          "precision": 0.824,
+          "recall": 0.875,
+          "f1": 0.848,
+          "support": 16
+        },
+        {
+          "label": "SUCCESS",
+          "precision": 0.783,
+          "recall": 0.692,
+          "f1": 0.735,
+          "support": 26
+        },
+        {
+          "label": "UNSAFE_EXECUTION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 23
+        }
+      ],
+      "macro_f1": 0.82,
+      "accuracy": 0.816
+    },
+    "V3 FINAL: normalised": {
+      "desc": "FINAL: line dropped for ALL classes",
+      "traces_modified": 60,
+      "per_class": [
+        {
+          "label": "HALLUCINATION",
+          "precision": 0.667,
+          "recall": 0.455,
+          "f1": 0.541,
+          "support": 22
+        },
+        {
+          "label": "LOOP",
+          "precision": 0.778,
+          "recall": 0.875,
+          "f1": 0.824,
+          "support": 16
+        },
+        {
+          "label": "SUCCESS",
+          "precision": 0.71,
+          "recall": 0.846,
+          "f1": 0.772,
+          "support": 26
+        },
+        {
+          "label": "UNSAFE_EXECUTION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 23
+        }
+      ],
+      "macro_f1": 0.784,
+      "accuracy": 0.793
+    },
+    "V4 all three": {
+      "desc": "V1 + V2 + V3 combined",
+      "traces_modified": 74,
+      "per_class": [
+        {
+          "label": "HALLUCINATION",
+          "precision": 0.667,
+          "recall": 0.455,
+          "f1": 0.541,
+          "support": 22
+        },
+        {
+          "label": "LOOP",
+          "precision": 0.778,
+          "recall": 0.875,
+          "f1": 0.824,
+          "support": 16
+        },
+        {
+          "label": "SUCCESS",
+          "precision": 0.71,
+          "recall": 0.846,
+          "f1": 0.772,
+          "support": 26
+        },
+        {
+          "label": "UNSAFE_EXECUTION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 23
+        }
+      ],
+      "macro_f1": 0.784,
+      "accuracy": 0.793
+    }
+  },
+  "fpr": {
+    "success": [
+      {
+        "trace_id": "50a22eae",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9438105225563049
+        ]
+      },
+      {
+        "trace_id": "8e9e0747",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9167207479476929
+        ]
+      },
+      {
+        "trace_id": "8ed9d77c",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9589264392852783,
+          0.9533897042274475
+        ]
+      },
+      {
+        "trace_id": "d568eb6a",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.7479870319366455
+        ]
+      },
+      {
+        "trace_id": "a564acd3",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9701058268547058,
+          0.917586088180542
+        ]
+      },
+      {
+        "trace_id": "93ae40b3",
+        "true": "SUCCESS",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.8693355321884155,
+          0.8250173330307007,
+          0.8268928527832031
+        ]
+      },
+      {
+        "trace_id": "04d33877",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9728058576583862,
+          0.9707109928131104
+        ]
+      },
+      {
+        "trace_id": "09c5cd93",
+        "true": "SUCCESS",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9664802551269531,
+          0.945307731628418,
+          0.9377415180206299
+        ]
+      },
+      {
+        "trace_id": "116be0e7",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9419595003128052,
+          0.9406018257141113
+        ]
+      },
+      {
+        "trace_id": "33015662",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.931042492389679,
+          0.9713857769966125
+        ]
+      },
+      {
+        "trace_id": "384abcc1",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.8632989525794983,
+          0.7892988920211792
+        ]
+      },
+      {
+        "trace_id": "3b6a7010",
+        "true": "SUCCESS",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.8993110656738281,
+          0.6699030995368958,
+          0.9225996136665344
+        ]
+      },
+      {
+        "trace_id": "3bb7f3cf",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.8394977450370789
+        ]
+      },
+      {
+        "trace_id": "3c964810",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9726094603538513
+        ]
+      },
+      {
+        "trace_id": "5511fc57",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9671581983566284
+        ]
+      },
+      {
+        "trace_id": "63abd803",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9543101787567139,
+          0.9690898060798645
+        ]
+      },
+      {
+        "trace_id": "65f95d06",
+        "true": "SUCCESS",
+        "n_steps": 5,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.858295202255249,
+          0.9160733222961426,
+          0.9296457171440125,
+          0.929867684841156,
+          0.8614467978477478
+        ]
+      },
+      {
+        "trace_id": "6f402749",
+        "true": "SUCCESS",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9517448544502258
+        ]
+      },
+      {
+        "trace_id": "73a25c1d",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9596236944198608,
+          0.9523769021034241
+        ]
+      },
+      {
+        "trace_id": "87c3f79d",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "HALLUCINATION",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.8052443265914917,
+          0.8742462396621704
+        ]
+      },
+      {
+        "trace_id": "89975d6d",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9676985144615173,
+          0.9420099258422852
+        ]
+      },
+      {
+        "trace_id": "a4909250",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9626606702804565,
+          0.9665930867195129
+        ]
+      },
+      {
+        "trace_id": "dbbabf55",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9543015360832214,
+          0.9612017869949341
+        ]
+      },
+      {
+        "trace_id": "ee6d8f0c",
+        "true": "SUCCESS",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9571653604507446,
+          0.9551224112510681,
+          0.968163013458252
+        ]
+      },
+      {
+        "trace_id": "f6bbe894",
+        "true": "SUCCESS",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9648956656455994,
+          0.9754103422164917,
+          0.9756330251693726
+        ]
+      },
+      {
+        "trace_id": "ca99bd88",
+        "true": "SUCCESS",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9704318642616272,
+          0.9900786876678467
+        ]
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "SYN_L000_T4",
+        "true": "LOOP",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9066940546035767,
+          0.6402438282966614,
+          0.9831017851829529,
+          0.989815354347229
+        ]
+      },
+      {
+        "trace_id": "SYN_L013_T4",
+        "true": "LOOP",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9579927325248718,
+          0.9904826879501343,
+          0.9922484159469604,
+          0.9927129149436951
+        ]
+      },
+      {
+        "trace_id": "SYN_L016_T5",
+        "true": "LOOP",
+        "n_steps": 5,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9462383985519409,
+          0.9465028643608093,
+          0.9464232325553894,
+          0.9503511786460876,
+          0.8200924396514893
+        ]
+      },
+      {
+        "trace_id": "SYN_L020_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9694762825965881,
+          0.9876179695129395,
+          0.9918334484100342
+        ]
+      },
+      {
+        "trace_id": "SYN_L021_T6",
+        "true": "LOOP",
+        "n_steps": 6,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP",
+          "LOOP",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9586057066917419,
+          0.9882397651672363,
+          0.9837008118629456,
+          0.9899313449859619,
+          0.9915403723716736,
+          0.9899846315383911
+        ]
+      },
+      {
+        "trace_id": "SYN_L027_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9705797433853149,
+          0.44718706607818604,
+          0.9845947027206421
+        ]
+      },
+      {
+        "trace_id": "SYN_L028_T4",
+        "true": "LOOP",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9425188302993774,
+          0.9873962998390198,
+          0.9905551075935364,
+          0.9901657700538635
+        ]
+      },
+      {
+        "trace_id": "SYN_L034_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9652402997016907,
+          0.9835842847824097,
+          0.9919071197509766
+        ]
+      },
+      {
+        "trace_id": "SYN_L036_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9730226397514343,
+          0.9214158654212952,
+          0.9925209283828735
+        ]
+      },
+      {
+        "trace_id": "SYN_L037_T4",
+        "true": "LOOP",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.8678696751594543,
+          0.858012855052948,
+          0.6683914661407471,
+          0.6324620246887207
+        ]
+      },
+      {
+        "trace_id": "SYN_L042_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.8138870596885681,
+          0.9901441335678101,
+          0.992084264755249
+        ]
+      },
+      {
+        "trace_id": "SYN_L047_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9150373935699463,
+          0.7935828566551208,
+          0.990760862827301
+        ]
+      },
+      {
+        "trace_id": "SYN_L050_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9018822312355042,
+          0.9193176627159119,
+          0.9889813661575317
+        ]
+      },
+      {
+        "trace_id": "SYN_L052_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9655277132987976,
+          0.8743488788604736,
+          0.9922411441802979
+        ]
+      },
+      {
+        "trace_id": "SYN_L054_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9645093679428101,
+          0.9913707971572876,
+          0.9928049445152283
+        ]
+      },
+      {
+        "trace_id": "SYN_L055_T3",
+        "true": "LOOP",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9605740904808044,
+          0.9917810559272766,
+          0.9924840331077576
+        ]
+      },
+      {
+        "trace_id": "SYN_U005_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.9768351316452026,
+          0.9935050010681152
+        ]
+      },
+      {
+        "trace_id": "SYN_U012_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.8211046457290649,
+          0.9934822916984558
+        ]
+      },
+      {
+        "trace_id": "SYN_U024_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.6244279146194458,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U036_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.9724709391593933,
+          0.993594229221344
+        ]
+      },
+      {
+        "trace_id": "SYN_U050_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.9784914255142212,
+          0.9934826493263245
+        ]
+      },
+      {
+        "trace_id": "SYN_U055_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.8699343204498291,
+          0.9928246736526489
+        ]
+      },
+      {
+        "trace_id": "SYN_U066_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.8670399188995361,
+          0.9927350282669067
+        ]
+      },
+      {
+        "trace_id": "SYN_U067_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.6478947997093201,
+          0.9929413795471191
+        ]
+      },
+      {
+        "trace_id": "SYN_U071_T2",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.6427633762359619,
+          0.9926730990409851
+        ]
+      },
+      {
+        "trace_id": "SYN_U084_T3",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 3,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.9693264365196228,
+          0.9726488590240479,
+          0.9935278296470642
+        ]
+      },
+      {
+        "trace_id": "SYN_U091_T3",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 3,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.8717667460441589,
+          0.9861672520637512,
+          0.993412435054779
+        ]
+      },
+      {
+        "trace_id": "0eea6412",
+        "true": "HALLUCINATION",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "LOOP",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9644553661346436,
+          0.9852834939956665,
+          0.9920092821121216,
+          0.9463208317756653
+        ]
+      },
+      {
+        "trace_id": "2e9cc447",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9471467733383179,
+          0.8181674480438232
+        ]
+      },
+      {
+        "trace_id": "501711d8",
+        "true": "HALLUCINATION",
+        "n_steps": 11,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "LOOP",
+          "LOOP",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9686192870140076,
+          0.9385372996330261,
+          0.937889575958252,
+          0.9468100070953369,
+          0.9512667655944824,
+          0.9513092637062073,
+          0.8985642194747925,
+          0.9749360084533691,
+          0.983786404132843,
+          0.5888484716415405,
+          0.9413049221038818
+        ]
+      },
+      {
+        "trace_id": "59cb14f7",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9733967781066895,
+          0.9654790163040161
+        ]
+      },
+      {
+        "trace_id": "849338ef",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9451861381530762,
+          0.8070072531700134
+        ]
+      },
+      {
+        "trace_id": "a7f20591",
+        "true": "HALLUCINATION",
+        "n_steps": 1,
+        "preds": [
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9427963495254517
+        ]
+      },
+      {
+        "trace_id": "a86043eb",
+        "true": "HALLUCINATION",
+        "n_steps": 6,
+        "preds": [
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "LOOP",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.6837983131408691,
+          0.9488377571105957,
+          0.9131495356559753,
+          0.8944742679595947,
+          0.5248167514801025,
+          0.9499017596244812
+        ]
+      },
+      {
+        "trace_id": "ba762817",
+        "true": "HALLUCINATION",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9614150524139404,
+          0.926845371723175,
+          0.9444313049316406,
+          0.9479551911354065
+        ]
+      },
+      {
+        "trace_id": "c5c1fe14",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.968296468257904,
+          0.94580078125
+        ]
+      },
+      {
+        "trace_id": "cee0de5b",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9404637217521667,
+          0.9213321805000305
+        ]
+      },
+      {
+        "trace_id": "0eeb3ea1",
+        "true": "HALLUCINATION",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9682687520980835,
+          0.44506654143333435,
+          0.8912714719772339,
+          0.78548663854599
+        ]
+      },
+      {
+        "trace_id": "1c514c41",
+        "true": "HALLUCINATION",
+        "n_steps": 7,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "LOOP",
+          "HALLUCINATION",
+          "LOOP",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9625016450881958,
+          0.8483048677444458,
+          0.8286595940589905,
+          0.6887490153312683,
+          0.4655708372592926,
+          0.727487325668335,
+          0.745217502117157
+        ]
+      },
+      {
+        "trace_id": "2e067d8c",
+        "true": "HALLUCINATION",
+        "n_steps": 10,
+        "preds": [
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9250339269638062,
+          0.9274305105209351,
+          0.9528201818466187,
+          0.9515880942344666,
+          0.9499659538269043,
+          0.9355677366256714,
+          0.7846227884292603,
+          0.9521923661231995,
+          0.9510245323181152,
+          0.9443161487579346
+        ]
+      },
+      {
+        "trace_id": "406c21ab",
+        "true": "HALLUCINATION",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "LOOP",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9616085886955261,
+          0.9421609044075012,
+          0.9549667239189148
+        ]
+      },
+      {
+        "trace_id": "5e95b0fc",
+        "true": "HALLUCINATION",
+        "n_steps": 8,
+        "preds": [
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.5649373531341553,
+          0.9392580986022949,
+          0.9509173631668091,
+          0.9559502601623535,
+          0.9558240175247192,
+          0.9582957625389099,
+          0.9406201839447021,
+          0.7191103100776672
+        ]
+      },
+      {
+        "trace_id": "65e3e31b",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9678086042404175,
+          0.9046048521995544
+        ]
+      },
+      {
+        "trace_id": "c3e89ddd",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9508311748504639,
+          0.9063581824302673
+        ]
+      },
+      {
+        "trace_id": "ecf7f9e1",
+        "true": "HALLUCINATION",
+        "n_steps": 4,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9584825038909912,
+          0.9658366441726685,
+          0.9451839923858643,
+          0.7690024375915527
+        ]
+      },
+      {
+        "trace_id": "11041c5c",
+        "true": "HALLUCINATION",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS",
+          "LOOP"
+        ],
+        "max_conf": [
+          0.9700533151626587,
+          0.9746302962303162,
+          0.9394832253456116
+        ]
+      },
+      {
+        "trace_id": "8580d390",
+        "true": "HALLUCINATION",
+        "n_steps": 3,
+        "preds": [
+          "SUCCESS",
+          "HALLUCINATION",
+          "HALLUCINATION"
+        ],
+        "max_conf": [
+          0.9139413833618164,
+          0.943183183670044,
+          0.9442915916442871
+        ]
+      },
+      {
+        "trace_id": "e328992d",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9503551125526428,
+          0.9637867212295532
+        ]
+      },
+      {
+        "trace_id": "f1cd4610",
+        "true": "HALLUCINATION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "max_conf": [
+          0.9533274173736572,
+          0.954700231552124
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U071",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "SUCCESS",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.6427633762359619,
+          0.9926730990409851
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      },
+      {
+        "trace_id": "SYN_U027",
+        "true": "UNSAFE_EXECUTION",
+        "n_steps": 2,
+        "preds": [
+          "UNSAFE_EXECUTION",
+          "UNSAFE_EXECUTION"
+        ],
+        "max_conf": [
+          0.74709552526474,
+          0.9928718209266663
+        ]
+      }
+    ],
+    "trace_level_fpr": 0.19230769230769232,
+    "step_level_fpr": 0.1320754716981132,
+    "runtime_precision": 0.9421487603305785
+  }
+}
